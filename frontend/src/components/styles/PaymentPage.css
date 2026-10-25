@@ -1014,3 +1014,53 @@
     width: 100%;
   }
 }
+
+@media (max-width: 480px) {
+  .payment-page-wrapper {
+    padding: 15px 10px 40px;
+  }
+
+  .payment-logo {
+    font-size: 1.65rem;
+  }
+
+  .payment-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .payment-main-card {
+    padding: 16px 12px;
+    border-radius: 14px;
+  }
+
+  .payment-stepper {
+    padding: 6px 8px;
+    gap: 4px;
+  }
+
+  .step-indicator {
+    width: 24px;
+    height: 24px;
+    font-size: 0.72rem;
+  }
+
+  .pay-step-title {
+    font-size: 0.72rem;
+  }
+
+  .order-summary-card {
+    padding: 14px 12px;
+    border-radius: 12px;
+  }
+
+  .plan-selector-card {
+    padding: 14px 12px;
+    border-radius: 12px;
+  }
+
+  .digital-card-preview {
+    padding: 12px 10px;
+    max-width: 100%;
+  }
+}
+

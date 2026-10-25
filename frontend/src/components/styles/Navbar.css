@@ -627,3 +627,66 @@
     height: 38px;
   }
 }
+
+@media (max-width: 480px) {
+  .navbar {
+    height: 64px;
+    padding: 0 12px;
+  }
+
+  .nav-backdrop {
+    top: 64px;
+    height: calc(100vh - 64px);
+  }
+
+  .nav-center-dock {
+    top: 64px;
+    height: calc(100vh - 64px);
+    width: 100%;
+    max-width: 100vw;
+    padding: 18px 14px 24px;
+    border-left: none;
+  }
+
+  .nav-brand {
+    gap: 8px;
+  }
+
+  .brand-iron,
+  .brand-elite {
+    font-size: 1.12rem;
+  }
+
+  .nav-brand-emblem {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+  }
+
+  .nav-brand-emblem svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .nav-login-btn {
+    padding: 7px 11px;
+    gap: 6px;
+    font-size: 0.8rem;
+  }
+
+  .nav-login-btn span {
+    font-size: 0.8rem;
+  }
+
+  .nav-user-chip {
+    padding: 3px 8px 3px 3px;
+    gap: 6px;
+  }
+
+  .mobile-menu-btn {
+    width: 38px;
+    height: 38px;
+    padding: 7px;
+  }
+}
+

@@ -658,3 +658,77 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  .musclemap-section {
+    padding: 70px 4% 50px;
+  }
+
+  .anatomical-svg-body {
+    height: 380px;
+  }
+
+  .intel-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .recovery-battery-box {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .musclemap-section {
+    padding: 55px 12px 40px;
+  }
+
+  .map-view-switcher {
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .map-view-btn {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+
+  .bodymap-visualizer-card {
+    padding: 16px 10px;
+    border-radius: 14px;
+  }
+
+  .anatomical-svg-body {
+    height: 320px;
+  }
+
+  .muscle-intel-card {
+    padding: 16px 12px;
+    border-radius: 14px;
+  }
+
+  .muscle-main-name {
+    font-size: 1.45rem;
+  }
+
+  .muscle-function {
+    font-size: 0.82rem;
+  }
+
+  .recovery-battery-box {
+    padding: 12px 14px;
+    border-radius: 10px;
+  }
+
+  .training-history-card {
+    padding: 16px 12px;
+    border-radius: 14px;
+  }
+
+  .rec-protocol-card {
+    padding: 16px 12px;
+    border-radius: 14px;
+  }
+}
+

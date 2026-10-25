@@ -122,3 +122,35 @@
     max-width: 270px;
   }
 }
+
+@media (max-width: 480px) {
+  .trainers {
+    padding: 50px 14px 40px;
+  }
+
+  .trainers .section-title {
+    font-size: 1.75rem;
+  }
+
+  .trainers-grid {
+    gap: 16px;
+  }
+
+  .trainer-card {
+    width: 100%;
+    max-width: 280px;
+    padding: 12px;
+  }
+
+  .trainer-img-wrapper {
+    height: 220px;
+  }
+
+  .trainer-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .trainer-card p {
+    font-size: 0.8rem;
+  }
+}

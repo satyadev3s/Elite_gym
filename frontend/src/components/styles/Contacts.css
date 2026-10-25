@@ -174,3 +174,40 @@
     width: 100%;
   }
 }
+
+@media (max-width: 480px) {
+  .contact {
+    padding: 50px 14px 40px;
+  }
+
+  .contact-overlay {
+    padding: 24px 14px;
+    border-radius: 14px;
+  }
+
+  .contact h2 {
+    font-size: 1.65rem;
+    margin-bottom: 8px;
+  }
+
+  .contact p {
+    font-size: 0.86rem;
+    margin-bottom: 20px;
+  }
+
+  .input-group {
+    gap: 10px;
+  }
+
+  .contact input,
+  .contact textarea {
+    padding: 11px 14px;
+    font-size: 0.85rem;
+    border-radius: 8px;
+  }
+
+  .contact-btn {
+    padding: 12px 20px;
+    font-size: 0.88rem;
+  }
+}

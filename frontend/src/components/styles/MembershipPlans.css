@@ -1454,3 +1454,89 @@ input:checked + .slider::before {
   font-size: 0.82rem;
   border-radius: 7px;
 }
+
+@media (max-width: 480px) {
+  .membership-section {
+    padding: 55px 14px 40px;
+  }
+
+  .billing-cycle-selector {
+    flex-direction: column;
+    width: 100%;
+    gap: 6px;
+    border-radius: 14px;
+    padding: 6px;
+  }
+
+  .cycle-btn {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 0.82rem;
+  }
+
+  .plans-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-bottom: 35px;
+  }
+
+  .plan-card {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+
+  .plan-price .price-num {
+    font-size: 2.1rem;
+  }
+
+  .plan-features-list {
+    margin: 18px 0;
+    gap: 10px;
+  }
+
+  .plan-cta-btn {
+    padding: 12px 20px;
+    font-size: 0.88rem;
+  }
+
+  .pt-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .pt-card {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .checkout-modal-card {
+    padding: 18px 12px;
+    width: 96%;
+    max-width: 96vw;
+    border-radius: 16px;
+  }
+
+  .checkout-stepper {
+    padding: 6px 8px;
+    gap: 4px;
+  }
+
+  .step-bubble {
+    width: 24px;
+    height: 24px;
+    font-size: 0.72rem;
+  }
+
+  .step-text strong {
+    font-size: 0.72rem;
+  }
+
+  .step-text span {
+    display: none;
+  }
+
+  .digital-card.compact {
+    padding: 12px 10px;
+  }
+}
+

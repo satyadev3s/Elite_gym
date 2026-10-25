@@ -215,3 +215,57 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 480px) {
+  .facilities-section {
+    padding: 55px 14px 40px;
+  }
+
+  .facilities-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+
+  .facility-card {
+    padding: 16px 14px;
+    border-radius: 14px;
+  }
+
+  .facility-photo {
+    height: 180px;
+  }
+
+  .facility-title {
+    font-size: 1.25rem;
+  }
+
+  .facility-desc {
+    font-size: 0.86rem;
+  }
+
+  .facilities-cta-banner {
+    padding: 22px 14px;
+    border-radius: 14px;
+  }
+
+  .banner-heading h3 {
+    font-size: 1.35rem;
+  }
+
+  .banner-heading p {
+    font-size: 0.85rem;
+  }
+
+  .cta-banner-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .banner-btn {
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 0.88rem;
+  }
+}
+

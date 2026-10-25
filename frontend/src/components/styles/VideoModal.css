@@ -261,3 +261,51 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 480px) {
+  .video-modal-backdrop {
+    padding: 8px;
+  }
+
+  .video-modal-content {
+    border-radius: 14px;
+    max-height: 96vh;
+  }
+
+  .video-modal-header {
+    padding: 12px 12px;
+  }
+
+  .vm-category-pill,
+  .vm-target-pill {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+
+  .vm-meta-body {
+    padding: 14px 12px;
+  }
+
+  .vm-meta-title-row h3 {
+    font-size: 1.15rem;
+  }
+
+  .vm-meta-title-row p {
+    font-size: 0.82rem;
+  }
+
+  .vm-cue-box {
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    border-radius: 10px;
+  }
+
+  .vm-action-btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: 11px 16px;
+    font-size: 0.85rem;
+  }
+}
+

@@ -1882,7 +1882,64 @@
 }
 
 @media (max-width: 480px) {
+  .workout-programs-section {
+    padding: 65px 12px 40px;
+  }
+
+  .athletic-kpi-banner {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .kpi-card {
+    padding: 12px 14px;
+    border-radius: 12px;
+  }
+
+  .view-tabs {
+    flex-direction: column;
+    width: 100%;
+    border-radius: 14px;
+    padding: 5px;
+    gap: 5px;
+  }
+
+  .view-tab-btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: 9px 12px;
+    font-size: 0.82rem;
+  }
+
   .day-pills-bar {
     grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .daily-protocol-banner {
+    padding: 16px 12px;
+    border-radius: 14px;
+  }
+
+  .protocol-main-title {
+    font-size: 1.3rem;
+  }
+
+  .v-card-meta {
+    padding: 14px 12px;
+  }
+
+  .v-card-title {
+    font-size: 1.05rem;
+  }
+
+  .log-workout-modal-box {
+    padding: 18px 12px;
+    width: 96%;
+    max-width: 96vw;
+    border-radius: 16px;
   }
 }
+

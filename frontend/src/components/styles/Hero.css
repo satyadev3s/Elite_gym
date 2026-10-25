@@ -427,3 +427,75 @@
     padding: 6px 12px;
   }
 }
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 80px 14px 35px;
+  }
+
+  .hero-overlay {
+    padding: 0 4px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+    letter-spacing: 0.8px;
+    margin-bottom: 14px;
+    line-height: 1.22;
+  }
+
+  .hero-subtitle {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin: 0 auto 22px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-accent {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px 20px;
+    font-size: 0.88rem;
+  }
+
+  .hero-features-preview {
+    margin-top: 22px;
+    padding: 16px 12px;
+  }
+
+  .preview-label {
+    font-size: 0.82rem;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  .preview-card {
+    min-height: auto;
+    padding: 14px 12px;
+  }
+
+  .card-icon {
+    font-size: 1.7rem;
+  }
+
+  .card-info strong {
+    font-size: 1rem;
+  }
+
+  .card-info p {
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  .lock-tag {
+    font-size: 0.76rem;
+    padding: 4px 10px;
+  }
+}

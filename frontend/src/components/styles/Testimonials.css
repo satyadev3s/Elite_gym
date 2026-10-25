@@ -193,3 +193,51 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 480px) {
+  .testimonials-section {
+    padding: 55px 14px 40px;
+  }
+
+  .testimonials-filter-bar {
+    gap: 6px;
+    margin-top: 18px;
+  }
+
+  .t-filter-btn {
+    padding: 6px 12px;
+    font-size: 0.76rem;
+  }
+
+  .testimonials-grid {
+    gap: 16px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+  }
+
+  .testimonial-card {
+    padding: 18px 14px;
+    border-radius: 14px;
+  }
+
+  .t-quote {
+    font-size: 0.84rem;
+    line-height: 1.5;
+  }
+
+  .trust-stats-ribbon {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 16px 10px;
+    border-radius: 12px;
+  }
+
+  .t-stat-num {
+    font-size: 1.45rem;
+  }
+
+  .t-stat-lbl {
+    font-size: 0.72rem;
+  }
+}
+

@@ -84,3 +84,17 @@ button {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--hover-cyan);
 }
+
+/* ============================================================
+   MOBILE RESPONSIVE BASELINE (MAX-WIDTH: 480PX)
+   ============================================================ */
+@media (max-width: 480px) {
+  html {
+    scroll-padding-top: 70px;
+  }
+
+  body {
+    font-size: 14px;
+  }
+}
+

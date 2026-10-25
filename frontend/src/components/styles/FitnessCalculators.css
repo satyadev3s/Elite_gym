@@ -550,3 +550,71 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 480px) {
+  .fitness-calculators-section {
+    padding: 50px 14px 45px;
+  }
+
+  .medical-disclaimer-banner {
+    flex-direction: column;
+    padding: 12px 14px;
+    gap: 8px;
+    margin: 18px auto 22px;
+  }
+
+  .calc-tabs {
+    gap: 6px;
+    margin-top: 16px;
+  }
+
+  .calc-tab-btn {
+    padding: 7px 11px;
+    font-size: 0.78rem;
+  }
+
+  .calc-card-container {
+    margin: 20px auto 0;
+  }
+
+  .calc-body-box {
+    padding: 18px 12px;
+    border-radius: 14px;
+  }
+
+  .calc-box-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+  }
+
+  .calc-box-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .unit-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .unit-btn {
+    flex: 1;
+    text-align: center;
+  }
+
+  .calc-grid-layout {
+    gap: 18px;
+  }
+
+  .calc-result-box {
+    padding: 16px 12px;
+    border-radius: 14px;
+  }
+
+  .result-big-num {
+    font-size: 2.2rem;
+  }
+}
+

@@ -370,3 +370,47 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  .progress-tracker-section {
+    padding: 70px 4% 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .progress-tracker-section {
+    padding: 55px 12px 40px;
+  }
+
+  .dashboard-card {
+    padding: 16px 12px;
+    border-radius: 14px;
+  }
+
+  .card-top-row h3 {
+    font-size: 1.15rem;
+  }
+
+  .card-subtext {
+    font-size: 0.78rem;
+  }
+
+  .photos-comparison-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .photo-preview-box {
+    height: 170px;
+  }
+
+  .metric-chips-bar {
+    gap: 6px;
+  }
+
+  .metric-chip {
+    padding: 4px 8px;
+    font-size: 0.72rem;
+  }
+}
+
