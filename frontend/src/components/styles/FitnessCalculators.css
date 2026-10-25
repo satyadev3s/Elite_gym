@@ -1,0 +1,552 @@
+.fitness-calculators-section {
+  padding: 70px 8% 80px;
+  background: radial-gradient(circle at 50% 10%, rgba(255, 107, 0, 0.06), transparent 60%), #0c0e12;
+  color: #fff;
+  position: relative;
+}
+
+/* Medical Disclaimer Banner */
+.medical-disclaimer-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: rgba(234, 179, 8, 0.08);
+  border: 1px solid rgba(234, 179, 8, 0.25);
+  border-radius: 12px;
+  padding: 16px 20px;
+  max-width: 850px;
+  margin: 25px auto 30px;
+  text-align: left;
+}
+
+.disclaimer-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.disclaimer-text {
+  font-size: 0.82rem;
+  color: #eab308;
+  line-height: 1.5;
+}
+
+.disclaimer-text strong {
+  color: #facc15;
+}
+
+/* Calculator Tabs */
+.calc-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.calc-tab-btn {
+  background: rgba(255, 255, 255, 0.06);
+  color: #aaa;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.calc-tab-btn:hover:not(.active) {
+  background: rgba(0, 229, 255, 0.12);
+  border-color: rgba(0, 229, 255, 0.45);
+  color: #00e5ff;
+}
+
+.calc-tab-btn.active {
+  background: #ff6b00;
+  color: #fff;
+  border-color: #ff6b00;
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.35);
+}
+
+/* Calculator Box */
+.calc-card-container {
+  max-width: 880px;
+  margin: 35px auto 0;
+}
+
+.calc-body-box {
+  background: rgba(24, 24, 24, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 34px;
+}
+
+.calc-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 18px;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.calc-box-header h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.calc-box-header p {
+  color: #888;
+  font-size: 0.85rem;
+  width: 100%;
+}
+
+.unit-toggle {
+  display: flex;
+  background: #181818;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 3px;
+}
+
+.unit-btn {
+  background: transparent;
+  color: #888;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.unit-btn.active {
+  background: #ff6b00;
+  color: #fff;
+}
+
+.calc-grid-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 34px;
+  align-items: center;
+}
+
+.inputs-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ccc;
+}
+
+.slider-val {
+  color: #ff8c00;
+  font-weight: 700;
+}
+
+.input-field input[type="range"] {
+  accent-color: #ff6b00;
+  cursor: pointer;
+}
+
+.dual-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.result-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* BMI Gauge */
+.bmi-display-circle {
+  width: 160px;
+  height: 160px;
+  border: 5px solid #ff6b00;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.score-label {
+  font-size: 0.75rem;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.score-num {
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.cat-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #000;
+  padding: 2px 10px;
+  border-radius: 10px;
+  margin-top: 4px;
+}
+
+.bmi-ranges-bar {
+  display: flex;
+  width: 100%;
+  max-width: 240px;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.range-seg {
+  flex: 1;
+}
+
+.range-seg.blue { background: #38bdf8; }
+.range-seg.green { background: #22c55e; }
+.range-seg.yellow { background: #eab308; }
+.range-seg.red { background: #ef4444; }
+
+.bmi-advice-text {
+  font-size: 0.82rem;
+  color: #aaa;
+  line-height: 1.45;
+  max-width: 280px;
+}
+
+/* Calorie Form Styles */
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.pill-toggle {
+  display: flex;
+  gap: 6px;
+}
+
+.calc-select {
+  background: #1c1c1c;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.goal-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.goal-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: #aaa;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.goal-btn.active {
+  background: #ff6b00;
+  color: #fff;
+  border-color: #ff6b00;
+}
+
+.tdee-card {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 107, 0, 0.25);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.target-calories-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.cal-sub {
+  font-size: 0.75rem;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.cal-large-num {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ff6b00;
+  line-height: 1;
+  margin: 4px 0;
+}
+
+.cal-unit {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.energy-split-info {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 12px 0;
+  margin-bottom: 16px;
+  font-size: 0.8rem;
+}
+
+.split-label {
+  color: #888;
+  display: block;
+}
+
+.split-val {
+  color: #fff;
+  font-weight: 700;
+}
+
+.macro-breakdown-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.macro-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.macro-card.protein { border-top: 3px solid #ef4444; }
+.macro-card.carbs { border-top: 3px solid #eab308; }
+.macro-card.fats { border-top: 3px solid #3b82f6; }
+
+.m-label {
+  font-size: 0.7rem;
+  color: #888;
+}
+
+.m-val {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 2px 0;
+}
+
+.m-cal {
+  font-size: 0.7rem;
+  color: #aaa;
+}
+
+/* Water Intake Logger */
+.hydration-tip-box {
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  color: #7dd3fc;
+  font-size: 0.82rem;
+  padding: 12px 14px;
+  border-radius: 10px;
+  line-height: 1.45;
+}
+
+.water-card {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.water-header h4 {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.water-rec-tag {
+  font-size: 0.8rem;
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.water-meter {
+  height: 24px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.water-level-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #0284c7, #38bdf8);
+  border-radius: 12px;
+  transition: width 0.4s ease;
+}
+
+.water-pct {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.glasses-control {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.glasses-count {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.glasses-count strong {
+  color: #38bdf8;
+}
+
+.glass-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.glass-action-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s;
+}
+
+.glass-action-btn.minus {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ddd;
+}
+
+.glass-action-btn.plus {
+  background: #0284c7;
+  color: #fff;
+}
+
+.glass-action-btn.plus:hover {
+  background: #0369a1;
+}
+
+/* Measurements Form */
+.measurements-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.measurements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+}
+
+.m-input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.m-input-box label {
+  font-size: 0.82rem;
+  color: #aaa;
+  font-weight: 600;
+}
+
+.m-input-box input {
+  background: #1e1e1e;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.m-input-box input:focus {
+  border-color: #ff6b00;
+}
+
+.save-measure-alert {
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid #22c55e;
+  color: #86efac;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.save-measurements-btn {
+  background: linear-gradient(135deg, #ff6b00, #ff3300);
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.save-measurements-btn:hover {
+  background: linear-gradient(135deg, #00f0ff 0%, #0077fe 100%);
+  color: #060b14;
+  box-shadow: 0 8px 24px rgba(0, 229, 255, 0.65);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .calc-grid-layout {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,124 @@
+.trainers {
+  padding: 85px 6% 75px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 10%, rgba(255, 107, 0, 0.05), transparent 60%), #0d0d0d;
+}
+
+.trainers .section-header-center {
+  margin-bottom: 40px;
+}
+
+.trainers .section-pill {
+  display: inline-block;
+  background: rgba(255, 107, 0, 0.12);
+  border: 1px solid rgba(255, 107, 0, 0.4);
+  color: #ffaa44;
+  padding: 5px 16px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.trainers .section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.trainers .section-title span {
+  color: #ff6b00;
+  text-shadow: 0 0 25px rgba(255, 107, 0, 0.5);
+}
+
+.trainers .section-subtitle {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.trainers-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.trainer-card {
+  width: 230px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 14px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.trainer-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 229, 255, 0.3);
+  border-color: rgba(0, 229, 255, 0.6);
+}
+
+.trainer-img-wrapper {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.trainer-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.trainer-card:hover .trainer-img-wrapper img {
+  transform: scale(1.05);
+}
+
+.trainer-info {
+  padding: 12px 4px 4px;
+}
+
+.trainer-card h3 {
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.trainer-card p {
+  color: #ff6600;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: color 0.25s ease;
+}
+
+.trainer-card:hover p {
+  color: #00e5ff;
+}
+
+@media (max-width: 768px) {
+  .trainers {
+    padding: 60px 5%;
+  }
+
+  .trainer-card {
+    width: 100%;
+    max-width: 270px;
+  }
+}
