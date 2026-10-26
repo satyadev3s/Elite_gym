@@ -520,14 +520,84 @@
 
 @media (max-width: 768px) {
   .three-member-hud-wrapper {
-    padding: 90px 4% 40px;
+    padding: 85px 4% 35px;
+    min-height: auto;
+  }
+
+  .hud-top-command-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+  }
+
+  .hud-athlete-profile {
+    width: 100%;
+    gap: 16px;
+  }
+
+  .hud-command-launchers {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hud-cmd-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 18px;
+    font-size: 0.92rem;
   }
 
   .hud-athlete-name {
-    font-size: 1.8rem;
+    font-size: clamp(1.6rem, 5vw, 1.95rem);
   }
 
   .member-telemetry-full-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .three-member-hud-wrapper {
+    padding: 75px 12px 28px;
+  }
+
+  .hud-avatar-frame {
+    width: 60px;
+    height: 60px;
+  }
+
+  .hud-avatar-fallback {
+    font-size: 1.6rem;
+  }
+
+  .hud-meta-row {
+    gap: 6px;
+  }
+
+  .hud-tier-pill {
+    font-size: 0.66rem;
+    padding: 2px 8px;
+  }
+
+  .hud-id-tag,
+  .hud-status-badge {
+    font-size: 0.68rem;
+  }
+
+  .hud-objective-text {
+    font-size: 0.8rem;
+  }
+
+  .telemetry-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .readiness-big-num {
+    font-size: 2.8rem;
   }
 }

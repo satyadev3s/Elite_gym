@@ -355,22 +355,125 @@ svg {
 }
 
 /* ============================================================
-   BREAKPOINT: ULTRA-COMPACT SCREENS (<= 320PX)
+   AUTHENTICATED MEMBER PORTAL & SIGN-OUT ADJUSTMENTS
    ============================================================ */
-@media screen and (max-width: 320px) {
-  body {
-    font-size: 13px !important;
+@media screen and (max-width: 900px) {
+  .nav-portal-badge {
+    display: none !important;
   }
 
-  .three-hero-headline {
-    font-size: 1.6rem !important;
+  .nav-user-info {
+    display: none !important;
   }
 
-  .three-hero-stats-dock {
+  .nav-logout-btn .logout-text {
+    display: none !important;
+  }
+
+  .nav-logout-btn {
+    padding: 7px 11px !important;
+    gap: 0 !important;
+  }
+
+  .nav-user-chip {
+    padding: 3px 8px 3px 3px !important;
+    gap: 6px !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .member-portal-active .navbar {
+    height: 64px !important;
+    padding: 0 10px !important;
+  }
+
+  .portal-main-content {
+    padding-top: 0 !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .nav-user-chip {
+    padding: 2px 6px 2px 2px !important;
+    gap: 5px !important;
+  }
+
+  .nav-avatar-wrapper {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .nav-logout-btn {
+    padding: 5px 8px !important;
+    border-radius: 18px !important;
+  }
+
+  .nav-logout-btn svg {
+    width: 13px !important;
+    height: 13px !important;
+  }
+
+  /* ThreeMemberHUD in Portal */
+  .three-member-hud-wrapper {
+    padding: 75px 12px 30px !important;
+  }
+
+  .hud-top-command-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 16px !important;
+  }
+
+  .hud-athlete-profile {
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  .hud-avatar-frame {
+    width: 58px !important;
+    height: 58px !important;
+  }
+
+  .hud-athlete-name {
+    font-size: 1.55rem !important;
+    word-break: break-word !important;
+  }
+
+  .hud-command-launchers {
+    width: 100% !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  .hud-cmd-btn {
+    width: 100% !important;
+    padding: 11px 16px !important;
+    font-size: 0.88rem !important;
+    justify-content: center !important;
+  }
+
+  .member-telemetry-full-grid {
     grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .member-portal-active .navbar {
+    padding: 0 6px !important;
   }
 
-  .section-title {
-    font-size: 1.5rem !important;
+  .nav-brand-text .brand-divider {
+    display: none !important;
+  }
+
+  .brand-iron,
+  .brand-elite {
+    font-size: 0.95rem !important;
+  }
+
+  .hud-athlete-name {
+    font-size: 1.35rem !important;
   }
 }

@@ -18,7 +18,8 @@ const ThreeMemberHUD = ({ user, onNavigate }) => {
     scene.fog = new THREE.FogExp2(0x05070d, 0.035);
 
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
-    camera.position.set(0, 0.5, 9.5);
+    const isMobileInitial = width < 768;
+    camera.position.set(0, 0.5, isMobileInitial ? 13.5 : 9.5);
 
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
@@ -142,7 +143,7 @@ const ThreeMemberHUD = ({ user, onNavigate }) => {
     dumbbellGroup.add(rightHead);
 
     // Initial position & angle
-    dumbbellGroup.position.set(3.2, 0.3, 0);
+    dumbbellGroup.position.set(isMobileInitial ? 0 : 3.2, isMobileInitial ? 0.6 : 0.3, 0);
     dumbbellGroup.rotation.set(0.35, 0.45, -0.25);
     scene.add(dumbbellGroup);
 
@@ -252,6 +253,10 @@ const ThreeMemberHUD = ({ user, onNavigate }) => {
       const newWidth = container.clientWidth;
       const newHeight = container.clientHeight || 540;
       camera.aspect = newWidth / newHeight;
+      const isNarrow = newWidth < 768;
+      dumbbellGroup.position.x = isNarrow ? 0 : 3.2;
+      dumbbellGroup.position.y = isNarrow ? 0.6 : 0.3;
+      camera.position.z = isNarrow ? 13.5 : 9.5;
       camera.updateProjectionMatrix();
       renderer.setSize(newWidth, newHeight);
     };
