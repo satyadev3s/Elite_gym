@@ -17,7 +17,9 @@ const ThreeHero3D = ({ user, onOpenLogin }) => {
     scene.fog = new THREE.FogExp2(0x050609, 0.025);
 
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
-    camera.position.set(0, 0.5, 11);
+    const isSmallMobile = width < 480;
+    const isTablet = width < 768;
+    camera.position.set(0, isSmallMobile ? 0.8 : (isTablet ? 0.6 : 0.4), isSmallMobile ? 15.5 : (isTablet ? 12.5 : 10.5));
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
     renderer.setSize(width, height);
@@ -219,6 +221,9 @@ const ThreeHero3D = ({ user, onOpenLogin }) => {
       width = container.clientWidth || window.innerWidth;
       height = container.clientHeight || window.innerHeight;
       camera.aspect = width / height;
+      const isNarrow = width < 480;
+      const isTab = width < 768;
+      camera.position.set(0, isNarrow ? 0.8 : (isTab ? 0.6 : 0.4), isNarrow ? 15.5 : (isTab ? 12.5 : 10.5));
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
     };

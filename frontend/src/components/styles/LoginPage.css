@@ -605,7 +605,7 @@
   }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 680px) {
   .login-showcase-page {
     padding: 20px 12px;
   }
@@ -638,5 +638,22 @@
 
   .mode-btn {
     padding: 8px 10px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .login-showcase-page {
+    padding: 12px 6px;
+  }
+
+  .login-auth-pane,
+  .login-prestige-showcase {
+    padding: 20px 14px;
+  }
+
+  .prestige-headline {
+    font-size: 1.55rem;
   }
 }

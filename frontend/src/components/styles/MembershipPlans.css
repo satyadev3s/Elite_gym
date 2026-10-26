@@ -1048,6 +1048,10 @@ input:checked + .slider::before {
   .section-title {
     font-size: 2rem;
   }
+  .plans-grid,
+  .pt-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
   .renewal-banner {
     flex-direction: column;
     align-items: flex-start;

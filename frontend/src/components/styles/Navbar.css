@@ -492,7 +492,7 @@
   position: fixed;
   top: 80px;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: calc(100vh - 80px);
   background: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(5px);
@@ -737,6 +737,26 @@
     width: 38px;
     height: 38px;
     padding: 7px;
+  }
+}
+
+@media (max-width: 380px) {
+  .navbar {
+    padding: 0 8px;
+  }
+
+  .nav-brand-text .brand-divider {
+    display: none;
+  }
+
+  .brand-iron,
+  .brand-elite {
+    font-size: 0.98rem;
+  }
+
+  .nav-login-btn {
+    padding: 6px 8px;
+    font-size: 0.74rem;
   }
 }
 
