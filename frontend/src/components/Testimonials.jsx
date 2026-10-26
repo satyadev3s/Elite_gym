@@ -27,7 +27,7 @@ const Testimonials = () => {
       rating: 5,
       headline: "Dropped 14% body fat while increasing squat strength",
       quote:
-        "Between the HIIT group classes and the macro calorie calculators, IronFit Elite provided structure without the guesswork. The progress photo slider kept me accountable week after week.",
+        "Between the HIIT group classes and the macro calorie calculators, Elite Fitness provided structure without the guesswork. The progress photo slider kept me accountable week after week.",
       stats: { metric: "-14%", label: "Body Fat Reduction" },
     },
     {

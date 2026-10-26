@@ -86,7 +86,7 @@ const ClubFacilities = ({ onOpenLogin }) => {
 
         <div className="facilities-cta-banner">
           <div className="cta-banner-text">
-            <h4>READY TO TRANSFORM YOUR BODY AT IRONFIT GYM?</h4>
+            <h4>READY TO TRANSFORM YOUR BODY AT ELITE FITNESS?</h4>
             <p>Get full access to our world-class gym equipment, free weights, cardio zone, certified personal trainers, and customized workout plans with your gym membership.</p>
           </div>
           <div className="cta-banner-buttons">

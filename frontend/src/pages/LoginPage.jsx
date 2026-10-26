@@ -193,7 +193,7 @@ const LoginPage = ({ initialMode = "login", onLoginSuccess, onBackToLanding }) =
           {/* Brand Logo */}
           <div className="auth-brand-lockup">
             <div className="auth-logo-text">
-              IRONFIT <span>// ELITE</span>
+              ELITE <span>// FITNESS</span>
             </div>
             <p className="auth-logo-sub">PREMIER FITNESS CLUB & GYM</p>
           </div>
@@ -381,7 +381,7 @@ const LoginPage = ({ initialMode = "login", onLoginSuccess, onBackToLanding }) =
           )}
 
           <p className="auth-terms-note">
-            By signing in or registering, you agree to the IronFit Gym Safety Protocol and Member Terms.
+            By signing in or registering, you agree to the Elite Fitness Gym Safety Protocol and Member Terms.
           </p>
         </div>
       </div>

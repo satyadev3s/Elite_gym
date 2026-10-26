@@ -96,9 +96,9 @@ const Navbar = ({ user, activeTab, onSelectTab, onLogout, onOpenLogin }) => {
             </svg>
           </div>
           <div className="nav-brand-text">
-            <span className="brand-iron">IRONFIT</span>
+            <span className="brand-iron">ELITE</span>
             <span className="brand-divider">//</span>
-            <span className="brand-elite">ELITE</span>
+            <span className="brand-elite">FITNESS</span>
           </div>
         </a>
 
@@ -185,7 +185,7 @@ const Navbar = ({ user, activeTab, onSelectTab, onLogout, onOpenLogin }) => {
             <button
               className="nav-logout-btn"
               onClick={onLogout}
-              title="Sign Out of IronFit Elite"
+              title="Sign Out of Elite Fitness"
               aria-label="Sign Out"
             >
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">

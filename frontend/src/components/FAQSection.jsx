@@ -12,7 +12,7 @@ const FAQSection = ({ onOpenLogin }) => {
     },
     {
       q: "Can I freeze or cancel my membership anytime?",
-      a: "Yes. All monthly and quarterly IronFit Elite memberships can be paused or canceled with zero cancellation penalties via your Member Portal account settings or at the front desk.",
+      a: "Yes. All monthly and quarterly Elite Fitness memberships can be paused or canceled with zero cancellation penalties via your Member Portal account settings or at the front desk.",
     },
     {
       q: "Are group fitness classes (Olympic lifting, HIIT, Kabaddi conditioning) included?",
@@ -20,7 +20,7 @@ const FAQSection = ({ onOpenLogin }) => {
     },
     {
       q: "Is the AI Fitness Coach available 24/7?",
-      a: "Yes! The IronFit AI Coach is accessible round-the-clock inside your Member Portal. You can ask for custom push-pull-legs splits, form cues, pre-workout nutrition advice, and safe joint-friendly exercise substitutions anytime.",
+      a: "Yes! The Elite Fitness AI Coach is accessible round-the-clock inside your Member Portal. You can ask for custom push-pull-legs splits, form cues, pre-workout nutrition advice, and safe joint-friendly exercise substitutions anytime.",
     },
     {
       q: "What equipment brands do you feature at the club?",

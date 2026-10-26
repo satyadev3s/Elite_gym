@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Brand Info */}
           <div className="footer-brand-pane">
             <div className="footer-logo">
-              IRONFIT <span>// ELITE</span>
+              ELITE <span>// FITNESS</span>
             </div>
             <p className="footer-compact-desc">
               High-performance strength, Olympic weightlifting & 3D athletic conditioning arena.
@@ -92,7 +92,7 @@ const Footer = () => {
 
         {/* Slim Bottom Copyright Bar */}
         <div className="footer-bottom-row">
-          <p>&copy; {new Date().getFullYear()} IRONFIT ELITE FITNESS CLUB & GYM. ALL RIGHTS RESERVED.</p>
+          <p>&copy; {new Date().getFullYear()} ELITE FITNESS CLUB & GYM. ALL RIGHTS RESERVED.</p>
           <div className="footer-bottom-tags">
             <span>PREMIER GYM</span>
             <span>•</span>

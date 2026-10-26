@@ -8,7 +8,7 @@ const AIAssistant = () => {
   const [messages, setMessages] = useState([
     {
       sender: "ai",
-      text: "👋 Hello! I am your **IronFit AI Coach**. I can generate custom workout routines, guide exercise biomechanics, optimize your weekly training splits, and offer nutritional tips with proper safety guidance.\n\nHow can I help power your training today?",
+      text: "👋 Hello! I am your **Elite Fitness AI Coach**. I can generate custom workout routines, guide exercise biomechanics, optimize your weekly training splits, and offer nutritional tips with proper safety guidance.\n\nHow can I help power your training today?",
       time: "Just now",
     },
   ]);
@@ -149,7 +149,7 @@ Here is a recommended approach tailored to your fitness journey:
 
 Would you like me to generate a tailored routine for a specific body part, or adjust a program for your current fitness level?
 
-⚠️ *IronFit Medical Disclaimer: All AI recommendations are educational suggestions. Please adjust weights and movements based on your individual physical tolerance.*`;
+⚠️ *Elite Fitness Medical Disclaimer: All AI recommendations are educational suggestions. Please adjust weights and movements based on your individual physical tolerance.*`;
   };
 
   const handleSendMessage = (textToSend) => {
@@ -239,7 +239,7 @@ Would you like me to generate a tailored routine for a specific body part, or ad
             <div className="ai-header-left">
               <div className="ai-avatar">🤖</div>
               <div>
-                <h4>IronFit AI Coach</h4>
+                <h4>Elite Fitness AI Coach</h4>
                 <span className="ai-status">● Live Smart Assistant</span>
               </div>
             </div>

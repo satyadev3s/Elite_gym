@@ -283,7 +283,7 @@ const PaymentPage = ({
         {/* Brand Header */}
         <div className="payment-brand-header">
           <h1 className="payment-logo">
-            IronFit <span>Elite</span>
+            Elite <span>Fitness</span>
           </h1>
           <p className="payment-tagline">
             Official Membership Registration & Instant Member Portal Activation
@@ -542,7 +542,7 @@ const PaymentPage = ({
 
                   {onNavigateLogin && (
                     <div style={{ marginTop: "14px", textAlign: "center", fontSize: "0.9rem", color: "#8892b0" }}>
-                      Already an IronFit member?{" "}
+                      Already an Elite Fitness member?{" "}
                       <button
                         type="button"
                         onClick={onNavigateLogin}
@@ -802,7 +802,7 @@ const PaymentPage = ({
               <div className="success-celebration-icon">🎉</div>
               <h2 className="success-title">Payment Confirmed & Verified!</h2>
               <p className="success-sub">
-                Welcome to <strong>IronFit Elite</strong>,{" "}
+                Welcome to <strong>Elite Fitness</strong>,{" "}
                 {registeredMember.fullName}! Your membership is live and stored
                 securely in MongoDB.
               </p>
@@ -811,7 +811,7 @@ const PaymentPage = ({
               <div className="luxury-digital-pass">
                 <div className="pass-top">
                   <div className="pass-brand">
-                    IronFit <span>Elite</span>
+                    Elite <span>Fitness</span>
                   </div>
                   <span className="pass-vip-pill">
                     {registeredMember.planName}

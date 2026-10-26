@@ -289,7 +289,7 @@ const ThreeHero3D = ({ user, onOpenLogin }) => {
       <div className="three-hero-content-container">
         <div className="three-hero-kicker">
           <span className="kicker-pulse-dot" />
-          <span className="kicker-brand">IRONFIT // 3D ARENA</span>
+          <span className="kicker-brand">ELITE FITNESS // 3D ARENA</span>
           <span className="kicker-sep">/</span>
           <span className="kicker-location">HYDERABAD OLYMPIC FACILITY</span>
         </div>

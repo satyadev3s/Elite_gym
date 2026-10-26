@@ -14,7 +14,7 @@ export const membershipPlans = [
     features: [
       "Access to full gym floor & cardio deck",
       "Locker room & shower access",
-      "Free IronFit mobile app access",
+      "Free Elite Fitness mobile app access",
       "1 Complimentary fitness assessment",
       "Standard equipment orientation",
     ],

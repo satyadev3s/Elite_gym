@@ -52,7 +52,7 @@ const Contacts = () => {
           <div className="contact-info-panel">
             <div className="info-card">
               <span className="info-tag">GYM LOCATION</span>
-              <h4>IRONFIT ELITE FITNESS CLUB & GYM</h4>
+              <h4>ELITE FITNESS CLUB & GYM</h4>
               <p>Plot 42, Kondapur Main Road, HITEC City Corridor, Hyderabad, Telangana 500084</p>
             </div>
 
@@ -83,7 +83,7 @@ const Contacts = () => {
 
             {isSubmitted && (
               <div className="success-message">
-                INQUIRY DISPATCHED: An IronFit Elite concierge will contact you shortly.
+                INQUIRY DISPATCHED: An Elite Fitness concierge will contact you shortly.
               </div>
             )}
 

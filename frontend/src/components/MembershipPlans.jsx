@@ -683,7 +683,7 @@ const MembershipPlans = ({ onLoginSuccess, onProceedToPayment }) => {
                 <div className="digital-card compact">
                   <div className="digital-card-top">
                     <div className="card-brand">
-                      IronFit <span>Elite</span>
+                      Elite <span>Fitness</span>
                     </div>
                     <span className="card-tier-pill">{registeredMember.planName}</span>
                   </div>
