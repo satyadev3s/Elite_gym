@@ -27,3 +27,9 @@ archive/
 *.njsproj
 *.sln
 *.sw?
+
+# Agent & Skill caches
+.agents/
+.taste-skill/
+skills-lock.json
+

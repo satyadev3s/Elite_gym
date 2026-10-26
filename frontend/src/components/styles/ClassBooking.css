@@ -14,27 +14,31 @@
 
 .booking-tab-btn {
   background: rgba(255, 255, 255, 0.06);
-  color: #aaa;
+  color: #cbd5e1;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 10px 22px;
-  border-radius: 25px;
-  font-size: 0.9rem;
-  font-weight: 600;
+  padding: 11px 24px;
+  border-radius: 30px;
+  font-family: var(--font-display, "Barlow Condensed", sans-serif);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.25s ease;
 }
 
 .booking-tab-btn:hover:not(.active) {
-  background: rgba(0, 229, 255, 0.12);
-  border-color: rgba(0, 229, 255, 0.45);
-  color: #00e5ff;
+  background: rgba(255, 69, 0, 0.15);
+  border-color: var(--primary-blaze, #ff4500);
+  color: #ffffff;
+  transform: translateY(-2px);
 }
 
 .booking-tab-btn.active {
-  background: #ff6b00;
-  color: #fff;
-  border-color: #ff6b00;
-  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+  background: var(--primary-blaze, #ff4500);
+  color: #ffffff;
+  border-color: var(--primary-blaze, #ff4500);
+  box-shadow: 0 4px 18px rgba(255, 69, 0, 0.45);
 }
 
 .booking-toast-alert {
@@ -136,19 +140,20 @@
 }
 
 .class-card {
-  background: rgba(24, 24, 24, 0.75);
+  background: var(--bg-surface, #0d1017);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 18px;
-  padding: 24px;
+  border-radius: 20px;
+  padding: 26px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .class-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(0, 229, 255, 0.6);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 229, 255, 0.22);
+  transform: translateY(-6px) scale(1.02);
+  border-color: var(--primary-blaze, #ff4500);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.75), 0 0 25px rgba(255, 69, 0, 0.25);
 }
 
 .class-card-top {
@@ -265,22 +270,26 @@
 
 .book-now-btn {
   width: 100%;
-  background: linear-gradient(135deg, #ff6b00, #ff3300);
+  background: var(--primary-blaze, #ff4500);
   color: #fff;
   border: none;
-  padding: 12px;
-  border-radius: 10px;
-  font-size: 0.95rem;
-  font-weight: 700;
+  padding: 13px 20px;
+  border-radius: 30px;
+  font-family: var(--font-display, "Barlow Condensed", sans-serif);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(255, 69, 0, 0.4);
 }
 
 .book-now-btn:hover:not(:disabled) {
-  background: linear-gradient(135deg, #00f0ff 0%, #0077fe 100%);
-  color: #060b14;
+  background: #ff2a00;
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 229, 255, 0.65);
+  box-shadow: 0 8px 25px rgba(255, 69, 0, 0.65);
 }
 
 .book-now-btn.disabled {

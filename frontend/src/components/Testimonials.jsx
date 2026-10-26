@@ -51,16 +51,15 @@ const Testimonials = () => {
 
   return (
     <section className="testimonials-section reveal" id="testimonials">
-      <HeroBackgroundAnimation />
+      <HeroBackgroundAnimation variant="dual-dumbbell" position="left" />
       <div className="testimonials-container">
         <div className="section-header-center">
-          <span className="section-pill">PROVEN RESULTS</span>
+          <span className="section-pill">ATHLETE PROOF</span>
           <h2 className="section-title">
-            Real Stories, <span>Real Transformations</span>
+            FORGED BY <span>NUMBERS</span>, PROVEN BY SWEAT
           </h2>
           <p className="section-subtitle">
-            See how members of all fitness levels have redefined their physical capacity using our 3D MuscleMap,
-            science-backed routines, and elite coaching staff.
+            Documented metric improvements from competitive weightlifters, Kabaddi athletes, and dedicated lifters.
           </p>
 
           <div className="testimonials-filter-bar">
@@ -68,25 +67,25 @@ const Testimonials = () => {
               className={`t-filter-btn ${activeTab === "all" ? "active" : ""}`}
               onClick={() => setActiveTab("all")}
             >
-              All Transformations
+              All Athletes
             </button>
             <button
               className={`t-filter-btn ${activeTab === "hypertrophy" ? "active" : ""}`}
               onClick={() => setActiveTab("hypertrophy")}
             >
-              Muscle Hypertrophy
+              Hypertrophy
             </button>
             <button
               className={`t-filter-btn ${activeTab === "fat-loss" ? "active" : ""}`}
               onClick={() => setActiveTab("fat-loss")}
             >
-              Fat Loss & Conditioning
+              Speed & Conditioning
             </button>
             <button
               className={`t-filter-btn ${activeTab === "rehab" ? "active" : ""}`}
               onClick={() => setActiveTab("rehab")}
             >
-              Mobility & Joint Health
+              Mobility & Joint Rehab
             </button>
           </div>
         </div>
@@ -95,14 +94,12 @@ const Testimonials = () => {
           {filteredTestimonials.map((item) => (
             <div key={item.id} className="testimonial-card">
               <div className="t-card-header">
-                <img src={item.avatar} alt={item.name} className="t-avatar" />
+                <img src={item.avatar} alt={item.name} className="t-avatar" loading="lazy" />
                 <div className="t-author-info">
                   <h4>{item.name}</h4>
                   <span className="t-role">{item.role}</span>
                 </div>
-                <div className="t-rating">
-                  {"★".repeat(item.rating)}
-                </div>
+                <span className="t-verified-badge">VERIFIED PR</span>
               </div>
 
               <div className="t-stat-pill">
@@ -119,19 +116,19 @@ const Testimonials = () => {
         <div className="trust-stats-ribbon">
           <div className="trust-stat-box">
             <span className="t-stat-num">3,200+</span>
-            <span className="t-stat-lbl">Active Elite Members</span>
+            <span className="t-stat-lbl">Active Athletes</span>
           </div>
           <div className="trust-stat-box">
             <span className="t-stat-num">98.4%</span>
-            <span className="t-stat-lbl">Member Goal Achievement</span>
+            <span className="t-stat-lbl">Goal PR Rate</span>
           </div>
           <div className="trust-stat-box">
-            <span className="t-stat-num">4.9 / 5</span>
-            <span className="t-stat-lbl">Average Member Rating</span>
+            <span className="t-stat-num">100%</span>
+            <span className="t-stat-lbl">Periodized Programs</span>
           </div>
           <div className="trust-stat-box">
             <span className="t-stat-num">45+</span>
-            <span className="t-stat-lbl">Weekly Group Classes</span>
+            <span className="t-stat-lbl">Weekly Arena Sessions</span>
           </div>
         </div>
       </div>

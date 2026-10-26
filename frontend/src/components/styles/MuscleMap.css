@@ -14,27 +14,31 @@
 
 .map-view-btn {
   background: rgba(255, 255, 255, 0.06);
-  color: #aaa;
+  color: #cbd5e1;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 10px 24px;
-  border-radius: 25px;
-  font-size: 0.9rem;
-  font-weight: 600;
+  padding: 11px 26px;
+  border-radius: 30px;
+  font-family: var(--font-display, "Barlow Condensed", sans-serif);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.25s ease;
 }
 
 .map-view-btn:hover:not(.active) {
-  background: rgba(0, 229, 255, 0.12);
-  border-color: rgba(0, 229, 255, 0.45);
-  color: #00e5ff;
+  background: rgba(255, 69, 0, 0.15);
+  border-color: var(--primary-blaze, #ff4500);
+  color: #ffffff;
+  transform: translateY(-2px);
 }
 
 .map-view-btn.active {
-  background: #ff6b00;
-  color: #fff;
-  border-color: #ff6b00;
-  box-shadow: 0 4px 18px rgba(255, 107, 0, 0.45);
+  background: var(--primary-blaze, #ff4500);
+  color: #ffffff;
+  border-color: var(--primary-blaze, #ff4500);
+  box-shadow: 0 4px 18px rgba(255, 69, 0, 0.45);
 }
 
 .muscle-log-toast {

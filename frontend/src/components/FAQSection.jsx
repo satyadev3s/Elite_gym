@@ -15,7 +15,7 @@ const FAQSection = ({ onOpenLogin }) => {
       a: "Yes. All monthly and quarterly IronFit Elite memberships can be paused or canceled with zero cancellation penalties via your Member Portal account settings or at the front desk.",
     },
     {
-      q: "Are group fitness classes (Yoga, Zumba, HIIT) included?",
+      q: "Are group fitness classes (Olympic lifting, HIIT, Kabaddi conditioning) included?",
       a: "Pro and Elite VIP members enjoy unlimited access to all scheduled group classes. Starters receive 2 complimentary class passes per month and can reserve additional single drop-in slots via our real-time Class Booking module.",
     },
     {
@@ -38,15 +38,15 @@ const FAQSection = ({ onOpenLogin }) => {
 
   return (
     <section className="faq-section reveal" id="faq">
-      <HeroBackgroundAnimation />
+      <HeroBackgroundAnimation variant="kettlebell" position="right" />
       <div className="faq-container">
         <div className="section-header-center">
-          <span className="section-pill">COMMON QUESTIONS</span>
+          <span className="section-pill">FAQ // INTEL</span>
           <h2 className="section-title">
-            Frequently Asked <span>Questions</span>
+            FREQUENTLY ASKED <span>QUESTIONS</span>
           </h2>
           <p className="section-subtitle">
-            Everything you need to know about memberships, facilities, interactive training tools, and club protocols.
+            Direct answers on periodized programming, arena equipment specs, guest passes, and member facilities.
           </p>
         </div>
 
@@ -74,13 +74,16 @@ const FAQSection = ({ onOpenLogin }) => {
         </div>
 
         <div className="faq-footer-prompt">
-          <p>Still have questions or need assistance?</p>
+          <div className="faq-prompt-text">
+            <h5>HAVE A CUSTOM INQUIRY?</h5>
+            <p>Our head strength coaches and concierge desk respond within minutes.</p>
+          </div>
           <div className="faq-prompt-actions">
             <a href="https://wa.me/916301202481" target="_blank" rel="noreferrer" className="faq-contact-btn">
-              💬 Chat on WhatsApp: 6301202481
+              WHATSAPP: +91 63012 02481
             </a>
             <button className="faq-login-btn" onClick={onOpenLogin}>
-              🔐 Sign In to Member Portal
+              MEMBER PORTAL LOGIN
             </button>
           </div>
         </div>

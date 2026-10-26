@@ -18,7 +18,7 @@ const MemberDashboardHeader = ({ user, onNavigate }) => {
       <div className="mdh-backdrop-overlay"></div>
 
       <div className="mdh-content">
-        {/* Top Profile Strip - Fully visible below fixed navbar */}
+        {/* Top Profile Strip */}
         <div className="mdh-welcome-row">
           <div className="mdh-profile-box">
             <div className="mdh-avatar-wrapper">
@@ -26,23 +26,24 @@ const MemberDashboardHeader = ({ user, onNavigate }) => {
                 <img src={user.avatar} alt={user.name} className="mdh-avatar" />
               ) : (
                 <div className="mdh-avatar-fallback">
-                  {user.name ? user.name.charAt(0).toUpperCase() : "M"}
+                  {user.name ? user.name.charAt(0).toUpperCase() : "A"}
                 </div>
               )}
-              <span className="mdh-online-status" title="Active Session"></span>
+              <span className="mdh-online-status" title="Active Floor Session"></span>
             </div>
             <div className="mdh-profile-text">
               <div className="mdh-tier-row">
-                <span className="mdh-tier-badge">{user.tierBadge || "⭐ Pro Member"}</span>
+                <span className="mdh-tier-badge">{user.tierBadge || "PRO ATHLETE"}</span>
                 <span className="mdh-id-badge">ID: {user.memberId}</span>
-                <span className="mdh-joined-date">Member Since: {user.joinedDate || "Recent"}</span>
+                <span className="mdh-joined-date">MEMBER SINCE: {user.joinedDate || "2026"}</span>
               </div>
               <h1 className="mdh-greeting">
-                Welcome, <span>{user.name}</span>
+                WELCOME BACK, <span>{user.name.toUpperCase()}</span>
               </h1>
-              <p className="mdh-goal">
-                🎯 Training Objective: <strong>{user.goal}</strong>
-              </p>
+              <div className="mdh-goal">
+                <span className="goal-tag">OBJECTIVE:</span>
+                <strong>{user.goal}</strong>
+              </div>
             </div>
           </div>
 
@@ -52,14 +53,14 @@ const MemberDashboardHeader = ({ user, onNavigate }) => {
               className="mdh-btn primary"
               onClick={(e) => handleNavClick("musclemap", e)}
             >
-              Launch MuscleMap 3D 🧬
+              LAUNCH MUSCLEMAP 3D ➔
             </a>
             <a
               href="#programs"
               className="mdh-btn secondary"
               onClick={(e) => handleNavClick("programs", e)}
             >
-              Workout Programs 🏋️
+              WORKOUT PROGRAMS ➔
             </a>
           </div>
         </div>
@@ -68,11 +69,11 @@ const MemberDashboardHeader = ({ user, onNavigate }) => {
         <div className="mdh-metrics-grid">
           <div className="mdh-card">
             <div className="mdh-card-top">
-              <span className="card-emoji">⚡</span>
-              <span className="card-trend positive">Tier Active</span>
+              <span className="card-kicker">ATHLETIC TIER</span>
+              <span className="card-trend positive">ACTIVE STATUS</span>
             </div>
-            <span className="card-num" style={{ fontSize: "1.2rem" }}>{user.tier || "Iron Pro Athlete"}</span>
-            <span className="card-lbl">Membership Level</span>
+            <span className="card-num">{user.tier || "Iron Pro Athlete"}</span>
+            <span className="card-lbl">Full Arena Floor & recovery zone access</span>
             <div className="card-progress-bar">
               <div className="card-progress-fill" style={{ width: "100%" }}></div>
             </div>
@@ -80,11 +81,11 @@ const MemberDashboardHeader = ({ user, onNavigate }) => {
 
           <div className="mdh-card">
             <div className="mdh-card-top">
-              <span className="card-emoji">🎯</span>
-              <span className="card-trend positive">Active Goal</span>
+              <span className="card-kicker">PERIODIZATION FOCUS</span>
+              <span className="card-trend positive">SPLIT CALIBRATED</span>
             </div>
-            <span className="card-num" style={{ fontSize: "1.1rem" }}>{user.goal || "Hypertrophy & Strength"}</span>
-            <span className="card-lbl">Program Biomechanics</span>
+            <span className="card-num">{user.goal || "Hypertrophy & Strength"}</span>
+            <span className="card-lbl">Automated sets, rest intervals, and volume logs</span>
             <div className="card-progress-bar">
               <div className="card-progress-fill recovery" style={{ width: "100%" }}></div>
             </div>
@@ -92,33 +93,33 @@ const MemberDashboardHeader = ({ user, onNavigate }) => {
 
           <div className="mdh-card">
             <div className="mdh-card-top">
-              <span className="card-emoji">🧬</span>
-              <span className="card-trend positive">Interactive Anatomy</span>
+              <span className="card-kicker">BIOMECHANICAL ENGINE</span>
+              <span className="card-trend positive">INTERACTIVE 3D</span>
             </div>
-            <span className="card-num" style={{ fontSize: "1.2rem" }}>MuscleMap 3D</span>
-            <span className="card-lbl">Targeted Muscle Activation</span>
+            <span className="card-num">3D MuscleMap</span>
+            <span className="card-lbl">Anatomical recruitment & technique cues</span>
             <a
               href="#musclemap"
               className="card-quick-action"
               onClick={(e) => handleNavClick("musclemap", e)}
             >
-              Launch Visualizer ➔
+              OPEN VISUALIZER ➔
             </a>
           </div>
 
           <div className="mdh-card">
             <div className="mdh-card-top">
-              <span className="card-emoji">📅</span>
-              <span className="card-trend neutral">Live Schedule</span>
+              <span className="card-kicker">ARENA SCHEDULE</span>
+              <span className="card-trend neutral">LIVE SLOTS</span>
             </div>
-            <span className="card-num" style={{ fontSize: "1.2rem" }}>Live Classes</span>
-            <span className="card-lbl">HIIT, Yoga, Conditioning Slots</span>
+            <span className="card-num">Arena Classes</span>
+            <span className="card-lbl">Olympic Lifting, HIIT, and sprint turf</span>
             <a
               href="#classes"
               className="card-quick-action"
               onClick={(e) => handleNavClick("classes", e)}
             >
-              Book Class Slot ➔
+              RESERVE CLASS SLOT ➔
             </a>
           </div>
         </div>

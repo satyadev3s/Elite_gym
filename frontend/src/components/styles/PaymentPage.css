@@ -38,10 +38,13 @@
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.18);
   color: #e2e8f0;
-  padding: 10px 20px;
-  border-radius: 24px;
-  font-size: 0.88rem;
-  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-family: var(--font-display, "Barlow Condensed", sans-serif);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
   cursor: pointer;
   transition: all 0.22s ease;
   display: inline-flex;
@@ -50,11 +53,11 @@
 }
 
 .payment-back-btn:hover {
-  background: rgba(0, 229, 255, 0.15);
-  border-color: #00e5ff;
-  color: #00e5ff;
+  background: rgba(255, 69, 0, 0.15);
+  border-color: var(--primary-blaze, #ff4500);
+  color: #ffffff;
   transform: translateX(-4px);
-  box-shadow: 0 4px 18px rgba(0, 229, 255, 0.35);
+  box-shadow: 0 4px 18px rgba(255, 69, 0, 0.35);
 }
 
 .secure-badge {
@@ -528,15 +531,18 @@
 }
 
 .payment-primary-btn {
-  background: linear-gradient(135deg, #ff6b00, #ff3300);
+  background: var(--primary-blaze, #ff4500);
   color: #fff;
   border: none;
-  padding: 15px 30px;
-  border-radius: 12px;
-  font-size: 1.02rem;
-  font-weight: 800;
+  padding: 15px 32px;
+  border-radius: 30px;
+  font-family: var(--font-display, "Barlow Condensed", sans-serif);
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(255, 107, 0, 0.45);
+  box-shadow: 0 4px 18px rgba(255, 69, 0, 0.45);
   transition: all 0.25s ease;
   display: inline-flex;
   align-items: center;
@@ -545,10 +551,10 @@
 }
 
 .payment-primary-btn:hover {
-  background: linear-gradient(135deg, #00f0ff 0%, #0077fe 100%);
-  color: #060b14;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 229, 255, 0.65);
+  background: #ff2a00;
+  color: #ffffff;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(255, 69, 0, 0.65);
 }
 
 .payment-primary-btn:disabled {

@@ -35,63 +35,98 @@ const Contacts = () => {
 
   return (
     <section className="contact reveal" id="contact">
-      <HeroBackgroundAnimation />
-      <div className="contact-overlay">
-        <h2>
-          Contact <span>IronFit Elite</span>
-        </h2>
-        <p className="contact-intro">
-          Have questions or want to join? Call or WhatsApp us at{" "}
-          <a href="https://wa.me/916301202481" className="contact-phone-link">
-            📞 6301202481
-          </a>{" "}
-          or send a message below!
-        </p>
+      <HeroBackgroundAnimation variant="dumbbell" position="left" />
+      <div className="contact-container">
+        <div className="section-header-center">
+          <span className="section-pill">LOCATION & CONTACT</span>
+          <h2 className="section-title">
+            VISIT OUR <span>GYM</span>
+          </h2>
+          <p className="section-subtitle">
+            Schedule a gym tour, meet our certified personal trainers, and experience our state-of-the-art facilities in Hyderabad.
+          </p>
+        </div>
 
-        {isSubmitted && (
-          <div className="success-message">
-            Thank you! Your message has been sent successfully. We'll be in touch soon.
-          </div>
-        )}
+        <div className="contact-grid">
+          {/* Gym Info Panel */}
+          <div className="contact-info-panel">
+            <div className="info-card">
+              <span className="info-tag">GYM LOCATION</span>
+              <h4>IRONFIT ELITE FITNESS CLUB & GYM</h4>
+              <p>Plot 42, Kondapur Main Road, HITEC City Corridor, Hyderabad, Telangana 500084</p>
+            </div>
 
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <div className="input-group">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Phone Number"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-            />
+            <div className="info-card">
+              <span className="info-tag">OPERATING HOURS</span>
+              <div className="hours-row">
+                <span>MONDAY - SATURDAY</span>
+                <strong>05:30 - 23:00</strong>
+              </div>
+              <div className="hours-row">
+                <span>SUNDAYS & RECOVERY</span>
+                <strong>06:00 - 20:00</strong>
+              </div>
+            </div>
+
+            <div className="info-card hotline-card">
+              <span className="info-tag">DIRECT HOTLINE</span>
+              <a href="https://wa.me/916301202481" target="_blank" rel="noreferrer" className="contact-hotline-btn">
+                WHATSAPP CONCIERGE: +91 63012 02481
+              </a>
+            </div>
           </div>
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          ></textarea>
-          <button type="submit" className="contact-btn">
-            Send Message
-          </button>
-        </form>
+
+          {/* Contact Form Overlay */}
+          <div className="contact-overlay">
+            <h3 className="form-heading">SEND DIRECT MESSAGE</h3>
+            <p className="form-subheading">Inquiries answered within 30 minutes during active floor hours.</p>
+
+            {isSubmitted && (
+              <div className="success-message">
+                INQUIRY DISPATCHED: An IronFit Elite concierge will contact you shortly.
+              </div>
+            )}
+
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <div className="input-group">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone / WhatsApp Number"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+              />
+              <textarea
+                name="message"
+                placeholder="Training Goals, Pass Inquiries, or Tour Requests..."
+                value={formData.message}
+                onChange={handleChange}
+                required
+              ></textarea>
+              <button type="submit" className="contact-btn">
+                SUBMIT INQUIRY // DISPATCH
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   );

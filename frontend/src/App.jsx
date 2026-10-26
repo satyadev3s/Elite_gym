@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import MemberDashboardHeader from "./components/MemberDashboardHeader";
+import ThreeHero3D from "./components/ThreeHero3D";
+import WorkoutPrograms3D from "./components/WorkoutPrograms3D";
+import ThreeMemberHUD from "./components/ThreeMemberHUD";
 import ClubFacilities from "./components/ClubFacilities";
 import Testimonials from "./components/Testimonials";
 import FAQSection from "./components/FAQSection";
@@ -19,8 +20,37 @@ import LoginPage from "./pages/LoginPage";
 import PaymentPage from "./pages/PaymentPage";
 import "./App.css";
 
-// Calculators removed from top navigation tabs - accessible directly inside the Dashboard
+// Authenticated member navigation tabs
 const MEMBER_TABS = ["dashboard", "musclemap", "programs", "classes", "progress"];
+
+// Comprehensive URL Hash Aliases for seamless direct link navigation
+const PUBLIC_SECTION_ALIASES = {
+  home: "hero",
+  hero: "hero",
+  programs: "programs-preview",
+  "programs-preview": "programs-preview",
+  workouts: "programs-preview",
+  facilities: "features",
+  features: "features",
+  amenities: "features",
+  coaches: "trainers",
+  trainers: "trainers",
+  team: "trainers",
+  membership: "membership",
+  pricing: "membership",
+  plans: "membership",
+  pass: "membership",
+  results: "testimonials",
+  testimonials: "testimonials",
+  reviews: "testimonials",
+  faq: "faq",
+  intel: "faq",
+  help: "faq",
+  contact: "contact",
+  contacts: "contact",
+  location: "contact",
+  arena: "contact",
+};
 
 const getTabFromHash = () => {
   const hash = window.location.hash.toLowerCase().replace("#", "").trim();
@@ -39,7 +69,6 @@ const App = () => {
         sessionStorage.getItem("ironfit_current_user");
       if (saved) {
         const parsed = JSON.parse(saved);
-        // Clean out legacy dummy test profile if present
         if (parsed.email === "alex.morgan@ironfit.com" && parsed.memberId === "IF-839214") {
           localStorage.removeItem("ironfit_current_user");
           sessionStorage.removeItem("ironfit_current_user");
@@ -54,7 +83,13 @@ const App = () => {
   });
 
   const [activeTab, setActiveTab] = useState(getTabFromHash);
-  const [authView, setAuthView] = useState(false);
+  const [authView, setAuthView] = useState(() => {
+    const hash = window.location.hash.toLowerCase().replace("#", "").trim();
+    if (hash === "register" || hash === "signup") return "register";
+    if (hash === "login" || hash === "signin") return "login";
+    return false;
+  });
+
   const [paymentView, setPaymentView] = useState(() => {
     const hash = window.location.hash.toLowerCase().replace("#", "").trim();
     if (hash === "payment" || hash === "checkout") {
@@ -63,38 +98,49 @@ const App = () => {
     return null;
   });
 
-  // Sync activeTab with hashchange in URL and smoothly scroll to public sections
+  // URL Hashchange & Popstate Router Coordinator
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.toLowerCase().replace("#", "").trim();
+    const handleLocationChange = () => {
+      const rawHash = window.location.hash.toLowerCase().replace("#", "").trim();
 
-      // Check payment or checkout hash
-      if (hash === "payment" || hash === "checkout") {
+      // 1. Checkout / Payment Route
+      if (rawHash === "payment" || rawHash === "checkout") {
         if (!currentUser) {
-          setPaymentView((prev) => prev || { plan: null, cycle: "monthly" });
+          setPaymentView({ plan: null, cycle: "monthly" });
           setAuthView(false);
           window.scrollTo({ top: 0, behavior: "smooth" });
           return;
         }
       }
 
-      // Check login or signin hash
-      if (hash === "login" || hash === "signin") {
+      // 2. Auth Routes (Login & Register)
+      if (rawHash === "register" || rawHash === "signup") {
         if (!currentUser) {
-          setAuthView(true);
+          setAuthView("register");
           setPaymentView(null);
           window.scrollTo({ top: 0, behavior: "smooth" });
           return;
         }
       }
 
-      // If calculators requested via hash, require login if not authenticated
-      if (hash === "calculators") {
+      if (rawHash === "login" || rawHash === "signin") {
         if (!currentUser) {
-          setAuthView(true);
+          setAuthView("login");
+          setPaymentView(null);
+          window.scrollTo({ top: 0, behavior: "smooth" });
           return;
         }
-        setActiveTab("dashboard");
+      }
+
+      // If user navigated away from auth or payment, always close the overlays!
+      setAuthView(false);
+      setPaymentView(null);
+
+      // 3. Calculators route inside dashboard
+      if (rawHash === "calculators") {
+        if (currentUser) {
+          setActiveTab("dashboard");
+        }
         setTimeout(() => {
           const calcElement = document.getElementById("calculators");
           if (calcElement) {
@@ -104,48 +150,66 @@ const App = () => {
         return;
       }
 
-      if (MEMBER_TABS.includes(hash)) {
-        if (!currentUser) {
-          setAuthView(true);
+      // 4. Authenticated Member Portal Tabs
+      if (currentUser && MEMBER_TABS.includes(rawHash)) {
+        setActiveTab(rawHash);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
+      // 5. If user is logged out and requests a member tab (except 'programs' which has public equivalent)
+      if (!currentUser && MEMBER_TABS.includes(rawHash)) {
+        if (rawHash === "programs") {
+          const target = document.getElementById("programs-preview");
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
           return;
         }
-        setActiveTab(hash);
+        setAuthView("login");
+        return;
+      }
+
+      // 6. Public Section Router with Alias Resolution
+      const resolvedSectionId = PUBLIC_SECTION_ALIASES[rawHash] || rawHash;
+
+      if (resolvedSectionId === "hero" || !resolvedSectionId) {
         window.scrollTo({ top: 0, behavior: "smooth" });
         return;
       }
 
-      // If an overlay view was active, close it and return to landing page
-      if (authView || paymentView) {
-        setAuthView(false);
-        setPaymentView(null);
-      }
-
-      // Top of landing page
-      if (hash === "hero" || !hash) {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        return;
-      }
-
-      // Public landing page sections: smoothly scroll to the target element on single click
       setTimeout(() => {
-        const targetElement = document.getElementById(hash);
+        const targetElement = document.getElementById(resolvedSectionId);
         if (targetElement) {
           targetElement.classList.add("active");
           targetElement.scrollIntoView({ behavior: "smooth" });
         }
-      }, 60);
+      }, 80);
     };
 
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
-  }, [currentUser, authView, paymentView]);
+    window.addEventListener("hashchange", handleLocationChange);
+    window.addEventListener("popstate", handleLocationChange);
+    return () => {
+      window.removeEventListener("hashchange", handleLocationChange);
+      window.removeEventListener("popstate", handleLocationChange);
+    };
+  }, [currentUser]);
 
-  // Handle direct hash navigation on initial page load (e.g. /#faq, /#features)
+  // Initial mount route handling
   useEffect(() => {
-    const hash = window.location.hash.toLowerCase().replace("#", "").trim();
-    if (hash && hash !== "hero" && !MEMBER_TABS.includes(hash) && hash !== "payment" && hash !== "checkout") {
+    const rawHash = window.location.hash.toLowerCase().replace("#", "").trim();
+    if (
+      rawHash &&
+      rawHash !== "hero" &&
+      rawHash !== "login" &&
+      rawHash !== "register" &&
+      rawHash !== "payment" &&
+      rawHash !== "checkout" &&
+      !MEMBER_TABS.includes(rawHash)
+    ) {
+      const resolvedId = PUBLIC_SECTION_ALIASES[rawHash] || rawHash;
       const timer = setTimeout(() => {
-        const targetElement = document.getElementById(hash);
+        const targetElement = document.getElementById(resolvedId);
         if (targetElement) {
           targetElement.classList.add("active");
           targetElement.scrollIntoView({ behavior: "smooth" });
@@ -189,16 +253,22 @@ const App = () => {
     }, 100);
   };
 
-  const handleOpenLogin = () => {
-    setAuthView(true);
+  const handleOpenLogin = (mode = "login") => {
+    setAuthView(mode);
     setPaymentView(null);
+    window.location.hash = `#${mode}`;
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleBackToLanding = () => {
     setAuthView(false);
     setPaymentView(null);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.hash = "#hero";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   const handleLogout = () => {
@@ -211,7 +281,7 @@ const App = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Scroll reveal trigger
+  // Scroll reveal trigger for animations
   useEffect(() => {
     const handleScroll = () => {
       const revealElements = document.querySelectorAll(".reveal");
@@ -249,17 +319,19 @@ const App = () => {
         onBackToLanding={handleBackFromPayment}
         onNavigateLogin={() => {
           setPaymentView(null);
-          setAuthView(true);
+          setAuthView("login");
           window.location.hash = "#login";
+          window.scrollTo({ top: 0, behavior: "smooth" });
         }}
       />
     );
   }
 
-  // SCENARIO 1: Dedicated Member Login / Registration Page
+  // SCENARIO 1: Dedicated Standalone Login & Athlete Registration Page
   if (authView && !currentUser) {
     return (
       <LoginPage
+        initialMode={authView === "register" ? "register" : "login"}
         onLoginSuccess={(user) => {
           setCurrentUser(user);
           setAuthView(false);
@@ -272,7 +344,6 @@ const App = () => {
   }
 
   // SCENARIO 2: Authenticated Member Portal
-  // Calculators embedded directly in Dashboard; isolated views for musclemap, programs, classes, progress
   if (currentUser) {
     return (
       <div className="app-container member-portal-active">
@@ -287,11 +358,7 @@ const App = () => {
         <main className="portal-main-content">
           {activeTab === "dashboard" && (
             <div className="dashboard-view-wrapper">
-              <MemberDashboardHeader
-                user={currentUser}
-                onNavigate={handleSelectTab}
-              />
-              {/* Fitness Calculators suite added directly into the Dashboard view */}
+              <ThreeMemberHUD user={currentUser} onNavigate={handleSelectTab} />
               <FitnessCalculators />
             </div>
           )}
@@ -313,20 +380,13 @@ const App = () => {
   // SCENARIO 3 (DEFAULT): Commercial Landing Page
   return (
     <div className="app-container landing-page-active">
-      <Navbar
-        user={null}
-        onOpenLogin={handleOpenLogin}
-      />
-      <Hero
-        user={null}
-        onOpenLogin={handleOpenLogin}
-      />
-      <ClubFacilities
-        onOpenLogin={handleOpenLogin}
-      />
+      <Navbar user={null} onOpenLogin={() => handleOpenLogin("login")} />
+      <ThreeHero3D user={null} onOpenLogin={() => handleOpenLogin("login")} />
+      <WorkoutPrograms3D onOpenLogin={() => handleOpenLogin("login")} />
+      <ClubFacilities onOpenLogin={() => handleOpenLogin("login")} />
       <Trainers />
       <MembershipPlans
-        onJoinClick={handleOpenLogin}
+        onJoinClick={() => handleOpenLogin("register")}
         onProceedToPayment={handleProceedToPayment}
         onLoginSuccess={(user) => {
           setCurrentUser(user);
@@ -334,7 +394,7 @@ const App = () => {
           window.location.hash = "#dashboard";
         }}
       />
-      <FAQSection onOpenLogin={handleOpenLogin} />
+      <FAQSection onOpenLogin={() => handleOpenLogin("login")} />
       <Contacts />
       <Testimonials />
       <Footer />

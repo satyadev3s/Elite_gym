@@ -5,6 +5,7 @@ import {
   comparisonFeatures,
 } from "../data/fitnessData.js";
 import HeroBackgroundAnimation from "./HeroBackgroundAnimation";
+import TiltCard3D from "./TiltCard3D";
 import api from "../services/api.js";
 import "./styles/MembershipPlans.css";
 
@@ -222,49 +223,15 @@ const MembershipPlans = ({ onLoginSuccess, onProceedToPayment }) => {
 
   return (
     <section className="membership-section reveal" id="membership">
-      <HeroBackgroundAnimation />
+      <HeroBackgroundAnimation variant="plate" position="center" />
       <div className="section-header">
-        <span className="section-tag">Flexible Memberships</span>
+        <span className="section-tag">GYM MEMBERSHIP PLANS</span>
         <h2 className="section-title">
-          Invest in Your <span>Body & Mind</span>
+          CHOOSE YOUR <span>GYM MEMBERSHIP</span>
         </h2>
         <p className="section-subtitle">
-          Transparent pricing with zero hidden fees. Choose the commitment that matches your goals.
+          Transparent, all-inclusive gym membership plans with zero hidden fees. Full access to gym equipment, free weights, locker rooms, steam sauna, and certified trainers.
         </p>
-
-        {/* Renewal Reminder Banner */}
-        <div className="renewal-banner">
-          <div className="renewal-info">
-            <div className="renewal-icon">🔔</div>
-            <div>
-              <strong>Member Portal Status: Iron Pro Athlete Active</strong>
-              <p>
-                Your membership renews in <span className="days-highlight">{daysRemaining} days</span>.{" "}
-                {autoRenew ? "Auto-renewal is enabled." : "Auto-renewal is paused."}
-              </p>
-            </div>
-          </div>
-          <div className="renewal-actions">
-            <label className="toggle-switch">
-              <input
-                type="checkbox"
-                checked={autoRenew}
-                onChange={() => setAutoRenew(!autoRenew)}
-              />
-              <span className="slider"></span>
-              <span className="toggle-label">Auto-Renew</span>
-            </label>
-            <button className="renew-btn" onClick={handleRenewNow}>
-              Renew Early (Save 10%)
-            </button>
-          </div>
-        </div>
-
-        {showRenewToast && (
-          <div className="renew-toast">
-            🎉 Membership extended successfully! Thank you for staying with IronFit Elite.
-          </div>
-        )}
 
         {/* Billing Cycle Switcher */}
         <div className="billing-switcher-container">
@@ -299,52 +266,58 @@ const MembershipPlans = ({ onLoginSuccess, onProceedToPayment }) => {
             billingCycle === "yearly" ? "/year" : billingCycle === "quarterly" ? "/quarter" : "/mo";
 
           return (
-            <div
+            <TiltCard3D
               key={plan.id}
-              className={`plan-card ${plan.popular ? "popular-card" : ""}`}
+              className={`plan-tilt-wrap ${plan.popular ? "popular-tilt" : ""}`}
+              maxTilt={7}
+              scale={plan.popular ? 1.03 : 1.02}
             >
-              {plan.popular && <div className="popular-badge">⭐ Most Popular</div>}
-              <div className="plan-badge">{plan.badge}</div>
-              <h3 className="plan-title">{plan.name}</h3>
-              <p className="plan-description">{plan.description}</p>
-
-              <div className="plan-price-wrapper">
-                <span className="currency">₹</span>
-                <span className="price-number">{price.toLocaleString("en-IN")}</span>
-                <span className="billing-period">{cycleLabel}</span>
-              </div>
-
-              {billingCycle !== "monthly" && (
-                <div className="equivalent-price">
-                  Equivalent to ₹
-                  {Math.round(price / (billingCycle === "yearly" ? 12 : 3)).toLocaleString("en-IN")}
-                  /month
-                </div>
-              )}
-
-              <button
-                className={`plan-cta-btn ${plan.popular ? "cta-highlight" : ""}`}
-                onClick={() => openRegisterModal(plan)}
+              <div
+                className={`plan-card ${plan.popular ? "popular-card" : ""}`}
               >
-                Choose {plan.name}
-              </button>
+                {plan.popular && <div className="popular-badge pop-3d-sm">MOST CHOSEN TIER</div>}
+                <div className="plan-badge pop-3d-sm">{plan.badge}</div>
+                <h3 className="plan-title pop-3d-md">{plan.name}</h3>
+                <p className="plan-description">{plan.description}</p>
 
-              <div className="plan-features-list">
-                <div className="features-group-title">Included Benefits</div>
-                {plan.features.map((feat, idx) => (
-                  <div key={idx} className="feature-item included">
-                    <span className="icon">✓</span>
-                    <span>{feat}</span>
+                <div className="plan-price-wrapper pop-3d-sm">
+                  <span className="currency">₹</span>
+                  <span className="price-number">{price.toLocaleString("en-IN")}</span>
+                  <span className="billing-period">{cycleLabel}</span>
+                </div>
+
+                {billingCycle !== "monthly" && (
+                  <div className="equivalent-price">
+                    Equivalent to ₹
+                    {Math.round(price / (billingCycle === "yearly" ? 12 : 3)).toLocaleString("en-IN")}
+                    /month
                   </div>
-                ))}
-                {plan.notIncluded.map((feat, idx) => (
-                  <div key={idx} className="feature-item excluded">
-                    <span className="icon">✕</span>
-                    <span>{feat}</span>
-                  </div>
-                ))}
+                )}
+
+                <button
+                  className={`plan-cta-btn ${plan.popular ? "cta-highlight" : ""} pop-3d-md`}
+                  onClick={() => openRegisterModal(plan)}
+                >
+                  SELECT {plan.name.toUpperCase()}
+                </button>
+
+                <div className="plan-features-list">
+                  <div className="features-group-title">Included Benefits</div>
+                  {plan.features.map((feat, idx) => (
+                    <div key={idx} className="feature-item included">
+                      <span className="icon">✓</span>
+                      <span>{feat}</span>
+                    </div>
+                  ))}
+                  {plan.notIncluded.map((feat, idx) => (
+                    <div key={idx} className="feature-item excluded">
+                      <span className="icon">✕</span>
+                      <span>{feat}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            </TiltCard3D>
           );
         })}
       </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import HeroBackgroundAnimation from "./HeroBackgroundAnimation";
+import TiltCard3D from "./TiltCard3D";
 import "./styles/Hero.css";
 
 const Hero = ({ user, onOpenLogin }) => {
@@ -10,53 +11,86 @@ const Hero = ({ user, onOpenLogin }) => {
 
       <div className="hero-overlay">
         <div className="hero-content">
-          <div className="hero-top-badges">
-            <span className="hero-badge">⚡ ELITE PERFORMANCE TRAINING</span>
-            <span className="hero-rating-badge">⭐ 4.9/5 (3,200+ Active Members)</span>
+          <div className="hero-kicker-bar">
+            <span className="kicker-tag">HYDERABAD ARENA</span>
+            <span className="kicker-sep">//</span>
+            <span className="kicker-text">OLYMPIC STRENGTH & ATHLETIC CONDITIONING</span>
           </div>
 
           <h1 className="hero-title">
-            Transform your <span>BODY</span> & MIND
+            FORGED IN SWEAT.<br />
+            <span>BUILT FOR GLORY.</span>
           </h1>
+
           <p className="hero-subtitle">
-            Unleash your inner strength with <strong>IronFit Elite</strong> — where science-backed
-            biomechanics, interactive 3D muscle mapping, and world-class coaching converge.
+            South India's premier athletic training facility. Competition Eleiko power racks, 50m sprint sled turf, 3D anatomical biomechanics, and championship coaching.
           </p>
 
           <div className="hero-buttons">
             {user ? (
               <>
                 <a href="#musclemap" className="btn-primary">
-                  Launch MuscleMap 3D 🧬
+                  LAUNCH MUSCLEMAP 3D
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <a href="#virtual-arena" className="btn-secondary">
+                  3D ARENA TOUR ➔
                 </a>
                 <a href="#programs" className="btn-secondary">
-                  My Workout Programs 🏋️
+                  MY WORKOUT SPLITS
                 </a>
               </>
             ) : (
               <>
                 <button className="btn-primary" onClick={onOpenLogin}>
-                  🔐 Member Portal Login
+                  ENTER ATHLETE PORTAL
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </button>
+                <a href="#virtual-arena" className="btn-secondary">
+                  3D ARENA TOUR ➔
+                </a>
                 <a href="#membership" className="btn-secondary">
-                  Membership Plans 💳
+                  VIEW PASS TIERS
                 </a>
               </>
             )}
           </div>
 
+          {/* Athletic Performance Metric Ticker */}
+          <div className="hero-metrics-strip">
+            <div className="h-metric-item">
+              <span className="h-metric-num">5,000+</span>
+              <span className="h-metric-label">SQ. FT. OLYMPIC TURF</span>
+            </div>
+            <div className="h-metric-divider"></div>
+            <div className="h-metric-item">
+              <span className="h-metric-num">50M</span>
+              <span className="h-metric-label">SPRINT & SLED TRACK</span>
+            </div>
+            <div className="h-metric-divider"></div>
+            <div className="h-metric-item">
+              <span className="h-metric-num">12+</span>
+              <span className="h-metric-label">PRO ATHLETIC COACHES</span>
+            </div>
+            <div className="h-metric-divider"></div>
+            <div className="h-metric-item">
+              <span className="h-metric-num">100%</span>
+              <span className="h-metric-label">PERIODIZED TRAINING</span>
+            </div>
+          </div>
+
           {/* Trusted Equipment Benchmark Bar */}
           {!user && (
             <div className="hero-partners-strip">
-              <span className="partners-label">EQUIPMENT & BIOMECHANICAL STANDARDS:</span>
+              <span className="partners-label">OFFICIAL EQUIPMENT & BIOMECHANICAL BENCHMARKS:</span>
               <div className="partners-list">
                 <span>ELEIKO</span>
                 <span className="dot">•</span>
                 <span>HAMMER STRENGTH</span>
                 <span className="dot">•</span>
-                <span>TECHNOGYM</span>
-                <span className="dot">•</span>
                 <span>ROGUE</span>
+                <span className="dot">•</span>
+                <span>TECHNOGYM</span>
                 <span className="dot">•</span>
                 <span>INBODY</span>
               </div>
@@ -67,56 +101,59 @@ const Hero = ({ user, onOpenLogin }) => {
           {!user && (
             <div className="hero-features-preview">
               <div className="preview-label">
-                <span>EXCLUSIVE MEMBER PORTAL MODULES (UNLOCKED AFTER LOGIN):</span>
+                <span>EXCLUSIVE MEMBER PORTAL MODULES (UNLOCKED AFTER REGISTRATION):</span>
               </div>
               <div className="preview-cards-grid">
                 {[
                   {
-                    icon: "🧬",
-                    title: "MuscleMap 3D",
-                    desc: "Interactive Anatomy & Online Masterclasses",
+                    tag: "BIOMECHANICS",
+                    title: "3D MuscleMap Engine",
+                    desc: "Interactive anatomical model showing primary motor recruitment, rest intervals, and technique masterclasses.",
+                    bg: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80",
                   },
                   {
-                    icon: "🏋️",
-                    title: "Workout Programs",
-                    desc: "Beginner to Pro Splits & Rest Timers",
+                    tag: "PERIODIZATION",
+                    title: "Athletic Workout Splits",
+                    desc: "Calibrated 30-day Kabaddi agility, Olympic strength, and hypertrophy routines with live rest timers.",
+                    bg: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=600&q=80",
                   },
                   {
-                    icon: "📅",
+                    tag: "ARENA CLASSES",
                     title: "Live Class Booking",
-                    desc: "Yoga, Zumba, HIIT & Strength Slots",
+                    desc: "Reserve slots for High-Intensity Functional Turf, Power Vinyasa, Combat Conditioning, and Olympic Lifting.",
+                    bg: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80",
                   },
                   {
-                    icon: "🧮",
-                    title: "Smart Calculators",
-                    desc: "BMI, TDEE, Calories & Water Intake",
-                  },
-                  {
-                    icon: "📊",
-                    title: "Progress Tracker",
-                    desc: "Weight Logs, Streaks & Photo Slider",
-                  },
-                  {
-                    icon: "🤖",
-                    title: "AI Fitness Coach",
-                    desc: "24/7 Intelligent Workout Assistant",
+                    tag: "DIAGNOSTICS",
+                    title: "AI Coach & Biometrics",
+                    desc: "24/7 intelligent training assistant, InBody body fat scans, TDEE calculator, and private photo slider.",
+                    bg: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=600&q=80",
                   },
                 ].map((mod) => (
-                  <div
+                  <TiltCard3D
                     key={mod.title}
-                    className="preview-card"
+                    className="preview-card-tilt-wrap"
+                    maxTilt={9}
+                    scale={1.03}
                     onClick={onOpenLogin}
-                    title={`Sign in to access ${mod.title}`}
                   >
-                    <div className="card-top-row">
-                      <span className="card-icon">{mod.icon}</span>
-                      <span className="lock-tag">🔒 Sign In ➔</span>
+                    <div
+                      className="preview-card"
+                      title={`Click to access ${mod.title}`}
+                      style={{
+                        backgroundImage: `linear-gradient(180deg, rgba(13, 16, 23, 0.82) 0%, rgba(9, 11, 16, 0.96) 100%), url(${mod.bg})`,
+                      }}
+                    >
+                      <div className="card-top-row pop-3d-sm">
+                        <span className="card-tag">{mod.tag}</span>
+                        <span className="lock-tag">UNLOCK PORTAL ➔</span>
+                      </div>
+                      <div className="card-info pop-3d-md">
+                        <strong>{mod.title}</strong>
+                        <p>{mod.desc}</p>
+                      </div>
                     </div>
-                    <div className="card-info">
-                      <strong>{mod.title}</strong>
-                      <p>{mod.desc}</p>
-                    </div>
-                  </div>
+                  </TiltCard3D>
                 ))}
               </div>
             </div>

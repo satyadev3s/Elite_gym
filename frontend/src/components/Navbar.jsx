@@ -37,11 +37,12 @@ const Navbar = ({ user, activeTab, onSelectTab, onLogout, onOpenLogin }) => {
     closeMenu();
     const targetId = href.replace("#", "").trim();
 
+    if (window.location.hash !== href) {
+      window.location.hash = href;
+    }
+
     if (targetId === "hero" || !targetId) {
       window.scrollTo({ top: 0, behavior: "smooth" });
-      if (window.location.hash !== "#hero") {
-        window.history.pushState(null, "", "#hero");
-      }
       return;
     }
 
@@ -49,11 +50,6 @@ const Navbar = ({ user, activeTab, onSelectTab, onLogout, onOpenLogin }) => {
     if (targetElement) {
       targetElement.classList.add("active");
       targetElement.scrollIntoView({ behavior: "smooth" });
-      if (window.location.hash !== href) {
-        window.history.pushState(null, "", href);
-      }
-    } else {
-      window.location.hash = href;
     }
   };
 
@@ -67,9 +63,10 @@ const Navbar = ({ user, activeTab, onSelectTab, onLogout, onOpenLogin }) => {
 
   const publicNavItems = [
     { href: "#hero", label: "Home" },
+    { href: "#programs-preview", label: "Programs" },
     { href: "#features", label: "Facilities" },
-    { href: "#trainers", label: "Trainers" },
-    { href: "#membership", label: "Plans" },
+    { href: "#trainers", label: "Coaches" },
+    { href: "#membership", label: "Membership" },
     { href: "#testimonials", label: "Results" },
     { href: "#faq", label: "FAQ" },
     { href: "#contact", label: "Contact" },
@@ -100,6 +97,7 @@ const Navbar = ({ user, activeTab, onSelectTab, onLogout, onOpenLogin }) => {
           </div>
           <div className="nav-brand-text">
             <span className="brand-iron">IRONFIT</span>
+            <span className="brand-divider">//</span>
             <span className="brand-elite">ELITE</span>
           </div>
         </a>
@@ -138,6 +136,7 @@ const Navbar = ({ user, activeTab, onSelectTab, onLogout, onOpenLogin }) => {
                   onClick={(e) => handlePublicNavClick(e, item.href)}
                 >
                   {item.label}
+                  {item.badge && <span className="nav-3d-badge">{item.badge}</span>}
                 </a>
               </li>
             ))

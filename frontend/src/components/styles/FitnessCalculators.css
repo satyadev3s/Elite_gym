@@ -57,16 +57,16 @@
 }
 
 .calc-tab-btn:hover:not(.active) {
-  background: rgba(0, 229, 255, 0.12);
-  border-color: rgba(0, 229, 255, 0.45);
-  color: #00e5ff;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
 }
 
 .calc-tab-btn.active {
-  background: #ff6b00;
+  background: linear-gradient(135deg, #ff5500 0%, #ff1e42 100%);
   color: #fff;
-  border-color: #ff6b00;
-  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 18px rgba(255, 85, 0, 0.4);
 }
 
 /* Calculator Box */

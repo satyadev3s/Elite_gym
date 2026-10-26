@@ -22,46 +22,49 @@
 /* Universal Section Headers */
 .section-header {
   text-align: center;
-  max-width: 840px;
-  margin: 0 auto 35px;
+  max-width: 880px;
+  margin: 0 auto 45px;
   position: relative;
 }
 
-.section-tag {
+.section-tag,
+.section-pill {
   display: inline-block;
-  font-size: 0.74rem;
-  font-weight: 700;
-  color: #ff944d;
+  font-family: var(--font-display, sans-serif);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #e2e8f0;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  background: rgba(255, 107, 0, 0.12);
-  border: 1px solid rgba(255, 107, 0, 0.35);
-  padding: 5px 14px;
-  border-radius: 20px;
-  margin-bottom: 12px;
+  letter-spacing: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 6px 18px;
+  border-radius: 30px;
+  margin-bottom: 14px;
 }
 
 .section-title {
-  font-size: 2.3rem;
-  font-weight: 800;
+  font-family: var(--font-display, sans-serif);
+  font-size: 3.2rem;
+  font-weight: 900;
   color: #ffffff;
-  margin-bottom: 12px;
+  text-transform: uppercase;
   letter-spacing: -0.5px;
-  line-height: 1.25;
+  line-height: 1.05;
+  margin-bottom: 14px;
 }
 
 .section-title span {
-  color: #ff6b00;
-  background: linear-gradient(135deg, #ff6b00 0%, #ff3300 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
+  border-bottom: 2px solid var(--primary-blaze, #ff5500);
 }
 
 .section-subtitle {
-  font-size: 0.95rem;
-  color: #9ca3af;
+  font-family: var(--font-main, sans-serif);
+  font-size: 1.02rem;
+  color: #94a3b8;
   line-height: 1.6;
-  max-width: 660px;
+  max-width: 680px;
   margin: 0 auto;
 }
 
@@ -87,43 +90,43 @@
    ============================================================ */
 @media (max-width: 768px) {
   .section-header {
-    margin: 0 auto 28px;
-    padding: 0 12px;
+    margin: 0 auto 32px;
+    padding: 0 14px;
   }
 
   .section-title {
-    font-size: 1.85rem;
+    font-size: 2.3rem;
     margin-bottom: 10px;
   }
 
   .section-subtitle {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     line-height: 1.55;
   }
 }
 
 @media (max-width: 480px) {
   .section-header {
-    margin: 0 auto 22px;
-    padding: 0 8px;
+    margin: 0 auto 24px;
+    padding: 0 10px;
   }
 
   .section-tag {
-    font-size: 0.68rem;
-    padding: 4px 12px;
-    letter-spacing: 1.2px;
+    font-size: 0.72rem;
+    padding: 3px 10px;
+    letter-spacing: 1.5px;
     margin-bottom: 8px;
   }
 
   .section-title {
-    font-size: 1.55rem;
+    font-size: 1.95rem;
     letter-spacing: -0.3px;
-    line-height: 1.22;
+    line-height: 1.1;
     margin-bottom: 8px;
   }
 
   .section-subtitle {
-    font-size: 0.82rem;
+    font-size: 0.88rem;
     line-height: 1.5;
   }
 }
