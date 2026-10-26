@@ -1,0 +1,376 @@
+/* ============================================================
+   ELITE FITNESS - UNIVERSAL MOBILE SCREEN MEDIA PIXELS SYSTEM
+   Targeted Pixel Breakpoints:
+     - Tablet / Phablet: <= 768px
+     - Large Modern Phones (iPhone Pro Max, Galaxy Ultra): <= 480px
+     - Standard Phones (iPhone 12-16, Galaxy S21-S24): <= 390px
+     - Compact Phones (iPhone SE, Mini, Galaxy A): <= 375px
+     - Ultra-Compact Screens: <= 320px
+   ============================================================ */
+
+/* 1. Mobile Hardware & Viewport Foundation */
+@supports (padding: env(safe-area-inset-top)) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Prevent Media Elements From Breaking Viewport */
+img,
+video,
+canvas,
+iframe {
+  max-width: 100% !important;
+  height: auto;
+}
+
+svg {
+  max-width: 100%;
+}
+
+/* Smooth momentum scrolling & eliminate tap delay */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 2. Prevent iOS Safari auto-zoom on input focus */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="search"],
+  select,
+  textarea {
+    font-size: 16px !important; /* iOS threshold to disable forced auto-zoom */
+  }
+}
+
+/* ============================================================
+   BREAKPOINT: TABLET & LARGE MOBILE (<= 768PX)
+   ============================================================ */
+@media screen and (max-width: 768px) {
+  /* Universal Section Padding & Header Typography */
+  section,
+  .section-container {
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+
+  .section-header {
+    margin-bottom: 28px !important;
+    padding: 0 12px !important;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 6vw, 2.4rem) !important;
+    line-height: 1.08 !important;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Universal 1-Column Collapse for Grids on Tablets */
+  .plans-grid,
+  .pt-cards-grid,
+  .classes-grid,
+  .testimonials-grid,
+  .trainers-grid,
+  .facilities-grid,
+  .video-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+}
+
+/* ============================================================
+   BREAKPOINT: STANDARD MOBILE SCREENS (<= 480PX)
+   iPhone 12/13/14/15/16, Samsung Galaxy S21-S24, Google Pixel
+   ============================================================ */
+@media screen and (max-width: 480px) {
+  /* Navigation Bar */
+  .navbar {
+    height: 64px !important;
+    padding: 0 12px !important;
+  }
+
+  .brand-iron,
+  .brand-elite {
+    font-size: 1.15rem !important;
+  }
+
+  .nav-login-btn {
+    padding: 7px 11px !important;
+    font-size: 0.8rem !important;
+    border-radius: 20px !important;
+  }
+
+  /* 3D Hero Section */
+  .three-hero-section {
+    padding: 85px 12px 30px !important;
+    min-height: 90vh !important;
+  }
+
+  .three-hero-headline {
+    font-size: clamp(1.9rem, 7.5vw, 2.35rem) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.5px !important;
+  }
+
+  .three-hero-subtext {
+    font-size: 0.9rem !important;
+    line-height: 1.48 !important;
+    margin-bottom: 20px !important;
+    padding: 0 2px !important;
+  }
+
+  .three-hero-cta-group {
+    width: 100% !important;
+    gap: 10px !important;
+  }
+
+  .btn-hero-primary,
+  .btn-hero-secondary,
+  .btn-hero-tertiary {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 13px 20px !important;
+    font-size: 1.02rem !important;
+    border-radius: 14px !important;
+    justify-content: center !important;
+  }
+
+  .three-hero-stats-dock {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 12px 14px !important;
+    gap: 8px !important;
+    border-radius: 16px !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .dock-stat-num {
+    font-size: 1.4rem !important;
+  }
+
+  .dock-stat-lbl {
+    font-size: 0.68rem !important;
+  }
+
+  /* Universal Section Tightening */
+  .facilities-section,
+  .membership-section,
+  .class-booking-section,
+  .workout-programs-section,
+  .fitness-calculators-section,
+  .musclemap-section,
+  .progress-tracker-section,
+  .trainers,
+  .testimonials-section,
+  .faq-section,
+  .contact {
+    padding: 50px 12px 35px !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .section-tag,
+  .section-pill {
+    font-size: 0.7rem !important;
+    padding: 4px 12px !important;
+    letter-spacing: 1.2px !important;
+  }
+
+  .section-title {
+    font-size: 1.85rem !important;
+  }
+
+  /* Facilities Cards */
+  .facility-card {
+    border-radius: 16px !important;
+  }
+
+  .facility-photo-wrapper {
+    height: 180px !important;
+  }
+
+  .facility-body {
+    padding: 18px 14px !important;
+  }
+
+  .facility-title {
+    font-size: 1.28rem !important;
+  }
+
+  /* Membership Cards */
+  .plan-card {
+    padding: 24px 16px !important;
+    border-radius: 18px !important;
+  }
+
+  .plan-price-num {
+    font-size: 2.2rem !important;
+  }
+
+  .billing-cycle-selector {
+    width: 100% !important;
+    padding: 4px !important;
+  }
+
+  .cycle-btn {
+    padding: 7px 10px !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* Contact & Concierge */
+  .contact-overlay {
+    padding: 20px 14px !important;
+    border-radius: 18px !important;
+  }
+
+  .input-group {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 26px 12px 16px !important;
+  }
+
+  .footer-logo {
+    font-size: 1.35rem !important;
+  }
+
+  .footer-bottom-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+  .footer-bottom-tags {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    font-size: 0.68rem !important;
+  }
+
+  /* Auth / Login Modal */
+  .login-showcase-page {
+    padding: 12px 8px !important;
+  }
+
+  .login-split-card {
+    border-radius: 18px !important;
+  }
+
+  .login-prestige-showcase {
+    padding: 22px 16px !important;
+  }
+
+  .prestige-headline {
+    font-size: 1.65rem !important;
+  }
+
+  .login-auth-pane {
+    padding: 22px 16px !important;
+  }
+
+  .auth-mode-switcher {
+    flex-direction: column !important;
+    border-radius: 14px !important;
+    padding: 4px !important;
+  }
+
+  .mode-btn {
+    padding: 8px !important;
+    font-size: 0.82rem !important;
+    width: 100% !important;
+  }
+}
+
+/* ============================================================
+   BREAKPOINT: COMPACT MOBILE SCREENS (<= 375PX)
+   iPhone SE, iPhone Mini, Compact Android Devices
+   ============================================================ */
+@media screen and (max-width: 375px) {
+  .navbar {
+    padding: 0 8px !important;
+    height: 60px !important;
+  }
+
+  .nav-brand-text .brand-divider {
+    display: none !important;
+  }
+
+  .brand-iron,
+  .brand-elite {
+    font-size: 1.02rem !important;
+  }
+
+  .nav-login-btn {
+    padding: 6px 9px !important;
+    font-size: 0.74rem !important;
+  }
+
+  .three-hero-headline {
+    font-size: 1.8rem !important;
+  }
+
+  .dock-stat-num {
+    font-size: 1.25rem !important;
+  }
+
+  .dock-stat-lbl {
+    font-size: 0.64rem !important;
+  }
+
+  .section-title {
+    font-size: 1.65rem !important;
+  }
+
+  .plan-card {
+    padding: 18px 12px !important;
+  }
+
+  .plan-price-num {
+    font-size: 1.95rem !important;
+  }
+
+  .login-prestige-showcase,
+  .login-auth-pane {
+    padding: 18px 12px !important;
+  }
+
+  .prestige-headline {
+    font-size: 1.45rem !important;
+  }
+}
+
+/* ============================================================
+   BREAKPOINT: ULTRA-COMPACT SCREENS (<= 320PX)
+   ============================================================ */
+@media screen and (max-width: 320px) {
+  body {
+    font-size: 13px !important;
+  }
+
+  .three-hero-headline {
+    font-size: 1.6rem !important;
+  }
+
+  .three-hero-stats-dock {
+    grid-template-columns: 1fr !important;
+  }
+
+  .section-title {
+    font-size: 1.5rem !important;
+  }
+}
