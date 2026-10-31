@@ -10,42 +10,42 @@ const ClubFacilities = ({ onOpenLogin }) => {
       desc: "Competition Eleiko IWF barbells, calibrated iron plates, and heavy-duty power racks built for squats, bench presses, and deadlifts.",
       tag: "FREE WEIGHTS",
       specs: "Eleiko IWF Barbells • Calibrated Plates • Oak Platforms",
-      image: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=600&q=70",
     },
     {
       title: "Functional Turf & Conditioning Zone",
       desc: "50m athletic turf track equipped for sled pushes, battle ropes, box jumps, kettlebells, and HIIT metabolic conditioning.",
       tag: "CARDIO & HIIT",
       specs: "Heavy Sleds • Plyo Boxes • Agility Ladders • Battle Ropes",
-      image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=70",
     },
     {
       title: "Boxing & Combat Fitness Zone",
       desc: "Heavy punching bags, speed bags, contest-grade mats, and combat conditioning equipment for cardiovascular stamina.",
       tag: "BOXING & COMBAT",
       specs: "Heavy Bags • Speed Bags • Shock Mats • Rotational Power",
-      image: "https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=600&q=70",
     },
     {
       title: "3D Muscle & Workout Analytics",
       desc: "Interactive 3D muscle targeting interface showing exercise form cues, primary muscle recruitment, and set-by-set progress tracking.",
       tag: "3D WORKOUT TECH",
       specs: "Interactive 3D Engine • Form Cues • Routine Logs",
-      image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=70",
     },
     {
       title: "Steam, Sauna & Cold Plunge Suite",
       desc: "Twin 3°C cold plunge tubs, Finnish steam rooms, and infrared recovery saunas for accelerated muscle recovery.",
       tag: "RECOVERY SUITE",
       specs: "3°C Cold Plunge • Infrared Sauna • Steam Rooms",
-      image: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=600&q=70",
     },
     {
       title: "Calisthenics Rig & Functional Strength",
       desc: "Custom heavy-gauge pull-up rigs, gymnastics rings, dip bars, and pegboards for bodyweight mastery and core strength.",
       tag: "FUNCTIONAL RIG",
       specs: "Gymnastics Rings • Heavy Rig • Pegboards • Parallel Bars",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=70",
     },
   ];
 
@@ -68,7 +68,7 @@ const ClubFacilities = ({ onOpenLogin }) => {
             <TiltCard3D key={index} className="facility-tilt-card-wrap" maxTilt={8} scale={1.025}>
               <div className="facility-card">
                 <div className="facility-photo-wrapper">
-                  <img src={item.image} alt={item.title} className="facility-photo" loading="lazy" />
+                  <img src={item.image} alt={item.title} className="facility-photo" loading="lazy" decoding="async" />
                   <span className="facility-badge pop-3d-sm">{item.tag}</span>
                 </div>
                 <div className="facility-body">

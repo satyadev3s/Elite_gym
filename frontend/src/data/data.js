@@ -40,7 +40,7 @@ export const programData = [
 export const trainerData = [
   {
     id: 1,
-    img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80",
+    img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=500&q=70",
     name: "Vikram 'The Beast' Rajput",
     role: "Head Strength & Olympic Lifting Coach",
     credential: "Asian Masters Weightlifting • CSCS Certified",
@@ -48,7 +48,7 @@ export const trainerData = [
   },
   {
     id: 2,
-    img: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80",
+    img: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=500&q=70",
     name: "Arjun Verma",
     role: "Pro Kabaddi Conditioning & Agility Lead",
     credential: "National Combat Athletics Conditioning Director",
@@ -56,7 +56,7 @@ export const trainerData = [
   },
   {
     id: 3,
-    img: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80",
+    img: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=500&q=70",
     name: "Dr. Priya Sharma",
     role: "Sports Biomechanics & Mobility Specialist",
     credential: "DPT • Joint Longevity & Movement Analytics",
@@ -64,7 +64,7 @@ export const trainerData = [
   },
   {
     id: 4,
-    img: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80",
+    img: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=500&q=70",
     name: "Marcus Sterling",
     role: "Combat Power & Metabolic Conditioning",
     credential: "EXOS Performance Specialist • USAW Coach",

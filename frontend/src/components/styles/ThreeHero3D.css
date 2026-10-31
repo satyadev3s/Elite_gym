@@ -14,7 +14,7 @@
     radial-gradient(ellipse 80% 60% at 50% 20%, rgba(255, 85, 0, 0.08) 0%, transparent 70%),
     radial-gradient(circle at 85% 75%, rgba(255, 30, 66, 0.05) 0%, transparent 60%),
     linear-gradient(180deg, rgba(5, 6, 9, 0.65) 0%, rgba(5, 6, 9, 0.85) 65%, #050609 100%),
-    url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80") center/cover no-repeat;
+    url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1280&q=75") center/cover no-repeat;
   padding: 120px 24px 60px;
 }
 
@@ -276,6 +276,11 @@
 @media (max-width: 768px) {
   .three-hero-section {
     padding: 100px 16px 40px;
+    background: 
+      radial-gradient(ellipse 80% 60% at 50% 20%, rgba(255, 85, 0, 0.08) 0%, transparent 70%),
+      radial-gradient(circle at 85% 75%, rgba(255, 30, 66, 0.05) 0%, transparent 60%),
+      linear-gradient(180deg, rgba(5, 6, 9, 0.65) 0%, rgba(5, 6, 9, 0.85) 65%, #050609 100%),
+      url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=720&q=65") center/cover no-repeat;
   }
 
   .three-hero-headline {

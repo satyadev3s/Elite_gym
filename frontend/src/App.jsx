@@ -1,24 +1,58 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import Navbar from "./components/Navbar";
 import ThreeHero3D from "./components/ThreeHero3D";
 import WorkoutPrograms3D from "./components/WorkoutPrograms3D";
-import ThreeMemberHUD from "./components/ThreeMemberHUD";
 import ClubFacilities from "./components/ClubFacilities";
 import Testimonials from "./components/Testimonials";
 import FAQSection from "./components/FAQSection";
-import MuscleMap from "./components/MuscleMap";
-import WorkoutPrograms from "./components/WorkoutPrograms";
-import ClassBooking from "./components/ClassBooking";
 import MembershipPlans from "./components/MembershipPlans";
-import FitnessCalculators from "./components/FitnessCalculators";
-import ProgressTracker from "./components/ProgressTracker";
 import Trainers from "./components/Trainers";
 import Contacts from "./components/Contacts";
 import Footer from "./components/Footer";
-import AIAssistant from "./components/AIAssistant";
-import LoginPage from "./pages/LoginPage";
-import PaymentPage from "./pages/PaymentPage";
 import "./App.css";
+
+// Lazy-loaded on-demand modules to ensure instantaneous mobile landing page performance
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+const PaymentPage = lazy(() => import("./pages/PaymentPage"));
+const ThreeMemberHUD = lazy(() => import("./components/ThreeMemberHUD"));
+const FitnessCalculators = lazy(() => import("./components/FitnessCalculators"));
+const MuscleMap = lazy(() => import("./components/MuscleMap"));
+const WorkoutPrograms = lazy(() => import("./components/WorkoutPrograms"));
+const ClassBooking = lazy(() => import("./components/ClassBooking"));
+const ProgressTracker = lazy(() => import("./components/ProgressTracker"));
+const AIAssistant = lazy(() => import("./components/AIAssistant"));
+
+const LoadingFallback = () => (
+  <div
+    style={{
+      minHeight: "60vh",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      flexDirection: "column",
+      gap: "14px",
+      background: "#050609",
+      color: "#94a3b8",
+      fontFamily: "var(--font-display, sans-serif)",
+      letterSpacing: "1.5px",
+      textTransform: "uppercase",
+      fontSize: "0.92rem",
+    }}
+  >
+    <div
+      style={{
+        width: "36px",
+        height: "36px",
+        border: "3px solid rgba(255, 85, 0, 0.2)",
+        borderTopColor: "#ff5500",
+        borderRadius: "50%",
+        animation: "eliteSpin 0.75s linear infinite",
+      }}
+    />
+    <span>Loading Elite Module...</span>
+    <style>{`@keyframes eliteSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`}</style>
+  </div>
+);
 
 // Authenticated member navigation tabs
 const MEMBER_TABS = ["dashboard", "musclemap", "programs", "classes", "progress"];
@@ -305,41 +339,45 @@ const App = () => {
   // SCENARIO 0: Dedicated Standalone Payment / Checkout Page
   if (paymentView && !currentUser) {
     return (
-      <PaymentPage
-        key={paymentView.plan?.id || paymentView.cycle || "checkout"}
-        initialPlan={paymentView.plan}
-        initialCycle={paymentView.cycle}
-        onPaymentSuccess={(user) => {
-          setCurrentUser(user);
-          setPaymentView(null);
-          setAuthView(false);
-          setActiveTab("dashboard");
-          window.location.hash = "#dashboard";
-        }}
-        onBackToLanding={handleBackFromPayment}
-        onNavigateLogin={() => {
-          setPaymentView(null);
-          setAuthView("login");
-          window.location.hash = "#login";
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }}
-      />
+      <Suspense fallback={<LoadingFallback />}>
+        <PaymentPage
+          key={paymentView.plan?.id || paymentView.cycle || "checkout"}
+          initialPlan={paymentView.plan}
+          initialCycle={paymentView.cycle}
+          onPaymentSuccess={(user) => {
+            setCurrentUser(user);
+            setPaymentView(null);
+            setAuthView(false);
+            setActiveTab("dashboard");
+            window.location.hash = "#dashboard";
+          }}
+          onBackToLanding={handleBackFromPayment}
+          onNavigateLogin={() => {
+            setPaymentView(null);
+            setAuthView("login");
+            window.location.hash = "#login";
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        />
+      </Suspense>
     );
   }
 
   // SCENARIO 1: Dedicated Standalone Login & Athlete Registration Page
   if (authView && !currentUser) {
     return (
-      <LoginPage
-        initialMode={authView === "register" ? "register" : "login"}
-        onLoginSuccess={(user) => {
-          setCurrentUser(user);
-          setAuthView(false);
-          setActiveTab("dashboard");
-          window.location.hash = "#dashboard";
-        }}
-        onBackToLanding={handleBackToLanding}
-      />
+      <Suspense fallback={<LoadingFallback />}>
+        <LoginPage
+          initialMode={authView === "register" ? "register" : "login"}
+          onLoginSuccess={(user) => {
+            setCurrentUser(user);
+            setAuthView(false);
+            setActiveTab("dashboard");
+            window.location.hash = "#dashboard";
+          }}
+          onBackToLanding={handleBackToLanding}
+        />
+      </Suspense>
     );
   }
 
@@ -356,23 +394,27 @@ const App = () => {
 
         {/* Dedicated Member Portal View Content */}
         <main className="portal-main-content">
-          {activeTab === "dashboard" && (
-            <div className="dashboard-view-wrapper">
-              <ThreeMemberHUD user={currentUser} onNavigate={handleSelectTab} />
-              <FitnessCalculators />
-            </div>
-          )}
+          <Suspense fallback={<LoadingFallback />}>
+            {activeTab === "dashboard" && (
+              <div className="dashboard-view-wrapper">
+                <ThreeMemberHUD user={currentUser} onNavigate={handleSelectTab} />
+                <FitnessCalculators />
+              </div>
+            )}
 
-          {activeTab === "musclemap" && <MuscleMap />}
+            {activeTab === "musclemap" && <MuscleMap />}
 
-          {activeTab === "programs" && <WorkoutPrograms />}
+            {activeTab === "programs" && <WorkoutPrograms />}
 
-          {activeTab === "classes" && <ClassBooking />}
+            {activeTab === "classes" && <ClassBooking />}
 
-          {activeTab === "progress" && <ProgressTracker />}
+            {activeTab === "progress" && <ProgressTracker />}
+          </Suspense>
         </main>
 
-        <AIAssistant />
+        <Suspense fallback={null}>
+          <AIAssistant />
+        </Suspense>
       </div>
     );
   }

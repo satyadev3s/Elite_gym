@@ -11,7 +11,7 @@ const PROGRAMS = [
     tagline: "Mechanical Tension & Mass",
     desc: "Targeted hypertrophy splits utilizing scientific progressive overload, full range biomechanics, and calibrated recovery cycles.",
     specs: "4-5 Days/Wk • 60 Min • RPE 8-9",
-    bg: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80",
+    bg: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=550&q=70",
     badge: "MOST POPULAR",
   },
   {
@@ -21,7 +21,7 @@ const PROGRAMS = [
     tagline: "High-Calorie EPOC Circuits",
     desc: "Explosive fat oxidation combining prowler sled sprints, battle ropes, and continuous heart-rate zone conditioning.",
     specs: "3-4 Days/Wk • 45 Min • 750+ kcal/session",
-    bg: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80",
+    bg: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=550&q=70",
     badge: "FAST RESULTS",
   },
   {
@@ -31,7 +31,7 @@ const PROGRAMS = [
     tagline: "Olympic Barbells & Power Racks",
     desc: "Competition Eleiko barbell lifts, heavy deadlift platforms, and central nervous system force adaptation for pure power.",
     specs: "3-4 Days/Wk • 75 Min • Heavy Singles & 5x5",
-    bg: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=800&q=80",
+    bg: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=550&q=70",
     badge: "OLYMPIC GRADE",
   },
   {
@@ -41,7 +41,7 @@ const PROGRAMS = [
     tagline: "Vo2 Max & Sprint Conditioning",
     desc: "Indoor 50m sprint track, non-motorized Skillmill runs, rowers, and high-altitude simulation to maximize lung capacity.",
     specs: "3-5 Days/Wk • 40 Min • Vo2 Max Gates",
-    bg: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80",
+    bg: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=550&q=70",
     badge: "HIGH VELOCITY",
   },
   {
@@ -51,7 +51,7 @@ const PROGRAMS = [
     tagline: "Custom Biomechanical Masterclass",
     desc: "Direct guidance from Olympia-certified coaches. Form correction masterclasses, weekly InBody scans, and nutrition periodization.",
     specs: "Custom Schedule • Private Arena • 1-on-1",
-    bg: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80",
+    bg: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=550&q=70",
     badge: "ELITE VIP",
   },
 ];

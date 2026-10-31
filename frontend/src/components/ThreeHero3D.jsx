@@ -9,23 +9,38 @@ const ThreeHero3D = ({ user, onOpenLogin }) => {
     const container = mountRef.current;
     if (!container) return;
 
+    let animId;
+    let isDisposed = false;
+    let isVisible = true;
+
     let width = container.clientWidth || window.innerWidth;
     let height = container.clientHeight || window.innerHeight;
+
+    // Detect mobile/tablet to calibrate GPU pipeline
+    const isSmallMobile = width < 480;
+    const isTablet = width < 768;
 
     // 1. Scene, Camera, and Renderer
     const scene = new THREE.Scene();
     scene.fog = new THREE.FogExp2(0x050609, 0.025);
 
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
-    const isSmallMobile = width < 480;
-    const isTablet = width < 768;
     camera.position.set(0, isSmallMobile ? 0.8 : (isTablet ? 0.6 : 0.4), isSmallMobile ? 15.5 : (isTablet ? 12.5 : 10.5));
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+    const renderer = new THREE.WebGLRenderer({
+      antialias: !isSmallMobile, // High-DPI small phones do not need expensive MSAA
+      alpha: true,
+      powerPreference: "high-performance",
+    });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFShadowMap;
+    // Limit pixel ratio on phones to prevent GPU rasterization bottlenecks
+    renderer.setPixelRatio(isTablet ? 1.0 : Math.min(window.devicePixelRatio || 1, 1.5));
+    
+    // Disable shadow maps on mobile to eliminate an extra GPU render pass
+    renderer.shadowMap.enabled = !isTablet;
+    if (!isTablet) {
+      renderer.shadowMap.type = THREE.PCFShadowMap;
+    }
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.25;
 
@@ -38,10 +53,12 @@ const ThreeHero3D = ({ user, onOpenLogin }) => {
     // Key Light from Top-Front-Right
     const keyLight = new THREE.DirectionalLight(0xffffff, 2.8);
     keyLight.position.set(6, 8, 7);
-    keyLight.castShadow = true;
-    keyLight.shadow.mapSize.width = 1024;
-    keyLight.shadow.mapSize.height = 1024;
-    keyLight.shadow.bias = -0.001;
+    keyLight.castShadow = !isTablet;
+    if (!isTablet) {
+      keyLight.shadow.mapSize.width = 512;
+      keyLight.shadow.mapSize.height = 512;
+      keyLight.shadow.bias = -0.001;
+    }
     scene.add(keyLight);
 
     // Electric Orange Rim Light
@@ -139,7 +156,7 @@ const ThreeHero3D = ({ user, onOpenLogin }) => {
     scene.add(barbellGroup);
 
     // 4. Atmospheric 3D Floating Particle Constellation
-    const particleCount = 1100;
+    const particleCount = isTablet ? 120 : 450;
     const particleGeo = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
@@ -230,11 +247,27 @@ const ThreeHero3D = ({ user, onOpenLogin }) => {
 
     window.addEventListener("resize", onResize);
 
-    // 8. 60FPS Cinematic Render Loop
-    let animId;
+    // 8. Viewport Intersection Observer (Pauses 3D GPU loop when user scrolls away)
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible && !animId) {
+          animId = requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(container);
+
     const startTime = performance.now();
 
     const animate = () => {
+      if (isDisposed) return;
+      if (!isVisible) {
+        animId = null;
+        return;
+      }
+
       const elapsedTime = (performance.now() - startTime) / 1000;
 
       // Smooth camera interpolation toward mouse position
@@ -256,10 +289,12 @@ const ThreeHero3D = ({ user, onOpenLogin }) => {
       animId = requestAnimationFrame(animate);
     };
 
-    animate();
+    animId = requestAnimationFrame(animate);
 
     return () => {
-      cancelAnimationFrame(animId);
+      isDisposed = true;
+      if (animId) cancelAnimationFrame(animId);
+      observer.disconnect();
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);

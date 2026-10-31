@@ -22,7 +22,7 @@ const Trainers = () => {
           <TiltCard3D key={trainer.id} className="trainer-tilt-wrap" maxTilt={10} scale={1.03}>
             <div className="trainer-card">
               <div className="trainer-img-wrapper">
-                <img src={trainer.img} alt={trainer.name} loading="lazy" />
+                <img src={trainer.img} alt={trainer.name} loading="lazy" decoding="async" />
                 <span className="trainer-badge pop-3d-sm">{trainer.tag}</span>
               </div>
               <div className="trainer-info">
